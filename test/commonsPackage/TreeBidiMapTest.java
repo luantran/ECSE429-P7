@@ -5,6 +5,7 @@ package commonsPackage;
 
 import static org.junit.Assert.*;
 
+import org.apache.commons.collections4.BidiMap;
 import org.junit.Test;
 
 public class TreeBidiMapTest {
@@ -12,6 +13,7 @@ public class TreeBidiMapTest {
 	@Test
 	public void test() {
 		//fail("Not yet implemented");
+		
 		assertEquals(1,0); //placeholder
 	}
 
