@@ -37,6 +37,20 @@ public class TreeBidiMapData {
 		return rightChildMap;
 	}
 	
+public TreeBidiMap bigBidiMap() {
+		
+		TreeBidiMap bigBidiMap = new TreeBidiMap();
+		bigBidiMap.put(5, 10);
+		bigBidiMap.put(7, 12);
+		bigBidiMap.put(3, 27);
+		bigBidiMap.put(12, 80);
+		bigBidiMap.put(1, 45);
+		bigBidiMap.put(24, 3);
+		bigBidiMap.put(15, 13);
+
+		return bigBidiMap;
+	}
+	
 	
 
 }

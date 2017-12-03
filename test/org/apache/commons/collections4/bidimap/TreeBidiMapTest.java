@@ -3,6 +3,7 @@ package org.apache.commons.collections4.bidimap;
 import data.TreeBidiMapData;
 import static org.junit.Assert.*;
 
+import org.apache.commons.collections4.OrderedBidiMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,7 +14,7 @@ public class TreeBidiMapTest {
 
 	private TreeBidiMap rootOnlyMap;
 	private TreeBidiMap leftChildMap;
-
+	private TreeBidiMap bigBidiMap;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -29,6 +30,7 @@ public class TreeBidiMapTest {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
+		bigBidiMap = dataClass.bigBidiMap();
 
 	}
 
@@ -160,7 +162,11 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testInverseBidiMap() {
-		fail("Not yet implemented");
+		System.out.println(this.bigBidiMap.toString());
+
+		OrderedBidiMap inverse = this.bigBidiMap.inverseBidiMap();
+		System.out.println(inverse.toString());
+		assertEquals(inverse.get(3), bigBidiMap.getKey(3));
 	}
 
 	@Test
