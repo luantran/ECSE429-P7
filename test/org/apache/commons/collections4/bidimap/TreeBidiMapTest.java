@@ -132,6 +132,28 @@ public class TreeBidiMapTest {
 		rootOnlyMap.put(1, 27);
 		assertEquals(2,rootOnlyMap.size()); // There should be a left child from the root node and now have 2 values
 	}
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 6 (line 538, 539, and 542):
+	 * - Need:
+	 * 	- cmp > 0 --> key in root must be less than the key in value
+	 * 	- Key of the right node, new "node", needs to be less than the key in value
+	 * - Done with Map with one value in root, and root with a right child
+	 * - Verify:
+	 * 	- verify that the left child is null
+	 *  - that there exist a right child
+	 *  	- put this in a new variable
+	 * 	- the new right child has the same key and value pair as the one passed in the put
+	 * 	- the new left child is null
+	 * 
+	 */
+	@Test
+	public void testPutMuchGreaterKey() {
+		rightChildMap.put(15, 29);// There should be a right child, which has another right child
+		assertEquals(3,rightChildMap.size()); // Size should now be 3
+	}
 
 	@Test
 	public void testPutAll() {
@@ -267,23 +289,6 @@ public class TreeBidiMapTest {
 	 *  	- put this in a new variable
 	 * 	- the new left child has the same key and value pair as the one passed in the put
 	 * 	- the new right child is null
-	 * 
-	 */
-	
-	/*
-	 * Testing for method doPut; will test through method Put
-	 * 
-	 * Test Case 6 (line 538, 539, and 542):
-	 * - Need:
-	 * 	- cmp > 0 --> key in root must be less than the key in value
-	 * 	- Key of the right node, new "node", needs to be less than the key in value
-	 * - Done with Map with one value in root, and root with a right child
-	 * - Verify:
-	 * 	- verify that the left child is null
-	 *  - that there exist a right child
-	 *  	- put this in a new variable
-	 * 	- the new right child has the same key and value pair as the one passed in the put
-	 * 	- the new left child is null
 	 * 
 	 */
 
