@@ -107,7 +107,6 @@ public class TreeBidiMapTest {
 	 * 
 	 * 
 	 */
-
 	@Test
 	public void testPutIntoEmptyMap() {
 		emptyMap.put(4, 7);
@@ -126,16 +125,34 @@ public class TreeBidiMapTest {
      * - Verify --> get an IllegalArgumentException
      *
      */
-	
 	@Test
 	public void testPutDuplicateKey() {
 		rootOnlyMap.put(5, 15); // Add duplicate key and no exception thrown
+		assertEquals(1, rootOnlyMap.size());
 		// This will not happen as line 505-506 will remove the duplicate first
 	}
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 4 (line 538 and 542):
+	 * - Need cmp > 0 --> key in root must be less than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the right child has the same key and value pair as the one passed in the put
+	 * 	- the left child is null
+	 * 
+	 */	
+	@Test
+	public void testPutGreaterKey() {
+		rootOnlyMap.put(8, 15);
+		assertEquals(2, rootOnlyMap.size());
 
+	}
+	
 	@Test
 	public void testPutAll() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
@@ -232,14 +249,10 @@ public class TreeBidiMapTest {
 	public void testToString() {
 		fail("Not yet implemented");
 	}
+
 	
-	/*
-	 * Notes:
-	 * - For compare(a1,b1)
-	 * 	- a1 > b1 --> return a positive value
-	 * 	- a1 < b1 --> return a negative value
-	 * 	- a1 == b1 --> return 0
-	 */
+	
+	
 	
 	/*
 	 * Testing for method doPut; will test through method Put
@@ -253,17 +266,7 @@ public class TreeBidiMapTest {
 	 * 
 	 */
 	
-	/*
-	 * Testing for method doPut; will test through method Put
-	 * 
-	 * Test Case 4 (line 538 and 542):
-	 * - Need cmp > 0 --> key in root must be less than the key in value
-	 * - Done with Map with one value in root
-	 * - Verify:
-	 * 	- the right child has the same key and value pair as the one passed in the put
-	 * 	- the left child is null
-	 * 
-	 */
+	
 	
 	/*
 	 * Testing for method doPut; will test through method Put
