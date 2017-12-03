@@ -3,6 +3,9 @@ package org.apache.commons.collections4.bidimap;
 import data.TreeBidiMapData;
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.collections4.OrderedBidiMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -52,7 +55,19 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testTreeBidiMapMapOfQextendsKQextendsV() {
-		fail("Not yet implemented");
+		Map<Integer, String> newMap = new HashMap<Integer, String>();
+		newMap.put(1, "one");
+		newMap.put(2, "two");
+		newMap.put(3, "three");
+		newMap.put(4, "four");
+		newMap.put(5, "five");
+		TreeBidiMap constructorBDMap = new TreeBidiMap(newMap);
+		assertEquals(constructorBDMap.get(1), "one");
+		assertEquals(constructorBDMap.get(2), "two");
+		assertEquals(constructorBDMap.get(3), "three");
+		assertEquals(constructorBDMap.get(4), "four");
+		assertEquals(constructorBDMap.get(5), "five");
+
 	}
 
 	@Test
