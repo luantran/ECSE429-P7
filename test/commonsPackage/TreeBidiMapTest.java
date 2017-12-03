@@ -18,5 +18,16 @@ public class TreeBidiMapTest {
 		// exMap.put(key, value)
 		assertEquals(1,0); //placeholder
 	}
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 1:
+	 * - Need node == null --> checking root
+	 * - Done with empty Map
+	 * - Verify --> get first node and confirm key and value pair
+	 * 
+	 * 
+	 */
 
 }
