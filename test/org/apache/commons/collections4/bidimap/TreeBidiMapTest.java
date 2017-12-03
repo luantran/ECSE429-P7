@@ -163,6 +163,31 @@ public class TreeBidiMapTest {
 		assertEquals(2,rootOnlyMap.size()); // There should be a left child from the root node and now have 2 values
 	}
 	
+<<<<<<< HEAD
+=======
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 6 (line 538, 539, and 542):
+	 * - Need:
+	 * 	- cmp > 0 --> key in root must be less than the key in value
+	 * 	- Key of the right node, new "node", needs to be less than the key in value
+	 * - Done with Map with one value in root, and root with a right child
+	 * - Verify:
+	 * 	- verify that the left child is null
+	 *  - that there exist a right child
+	 *  	- put this in a new variable
+	 * 	- the new right child has the same key and value pair as the one passed in the put
+	 * 	- the new left child is null
+	 * 
+	 */
+	@Test
+	public void testPutMuchGreaterKey() {
+		rightChildMap.put(15, 29);// There should be a right child, which has another right child
+		assertEquals(3,rightChildMap.size()); // Size should now be 3
+	}
+
+>>>>>>> 1b9b71e87c63cee4d2e14cd665f82b63c4ea65e0
 	@Test
 	public void testPutAll() {
 		
@@ -284,7 +309,47 @@ public class TreeBidiMapTest {
 	public void testToString() {
 		fail("Not yet implemented");
 	}
+<<<<<<< HEAD
 
 
+=======
+	
+	/*
+	 * Notes:
+	 * - For compare(a1,b1)
+	 * 	- a1 > b1 --> return a positive value
+	 * 	- a1 < b1 --> return a negative value
+	 * 	- a1 == b1 --> return 0
+	 */
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 4 (line 538 and 542):
+	 * - Need cmp > 0 --> key in root must be less than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the right child has the same key and value pair as the one passed in the put
+	 * 	- the left child is null
+	 * 
+	 */
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 5 (line 524, 525 and 528):
+	 * - Need:
+	 * 	- cmp < 0 --> key in root must be greater than the key in value
+	 * 	- Key of the left node, new "node", needs to be greater than the key in value
+	 * - Done with Map with one value in root, and root with a left child
+	 * - Verify:
+	 * 	- verify that the right child is null
+	 *  - that there exist a left child
+	 *  	- put this in a new variable
+	 * 	- the new left child has the same key and value pair as the one passed in the put
+	 * 	- the new right child is null
+	 * 
+	 */
+>>>>>>> 1b9b71e87c63cee4d2e14cd665f82b63c4ea65e0
 
 }
