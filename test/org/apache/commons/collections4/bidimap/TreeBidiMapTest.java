@@ -3,6 +3,9 @@ package org.apache.commons.collections4.bidimap;
 import data.TreeBidiMapData;
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.collections4.OrderedBidiMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -54,7 +57,19 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testTreeBidiMapMapOfQextendsKQextendsV() {
-		fail("Not yet implemented");
+		Map<Integer, String> newMap = new HashMap<Integer, String>();
+		newMap.put(1, "one");
+		newMap.put(2, "two");
+		newMap.put(3, "three");
+		newMap.put(4, "four");
+		newMap.put(5, "five");
+		TreeBidiMap constructorBDMap = new TreeBidiMap(newMap);
+		assertEquals(constructorBDMap.get(1), "one");
+		assertEquals(constructorBDMap.get(2), "two");
+		assertEquals(constructorBDMap.get(3), "three");
+		assertEquals(constructorBDMap.get(4), "four");
+		assertEquals(constructorBDMap.get(5), "five");
+
 	}
 
 	@Test
@@ -113,12 +128,27 @@ public class TreeBidiMapTest {
 	@Test
 	public void testPutDuplicateKey() {
 		rootOnlyMap.put(5, 15); // Add duplicate key and no exception thrown
+		assertEquals(1, rootOnlyMap.size());
 		// This will not happen as line 505-506 will remove the duplicate first
 	}
 	
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
+<<<<<<< HEAD
+	 * Test Case 4 (line 538 and 542):
+	 * - Need cmp > 0 --> key in root must be less than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the right child has the same key and value pair as the one passed in the put
+	 * 	- the left child is null
+	 * 
+	 */	
+	@Test
+	public void testPutGreaterKey() {
+		rootOnlyMap.put(8, 15);
+		assertEquals(2, rootOnlyMap.size());
+=======
 	 * Test Case 3 (line 524 and 528):
 	 * - Need cmp < 0 --> key in root must be greater than the key in value
 	 * - Done with Map with one value in root
@@ -132,10 +162,13 @@ public class TreeBidiMapTest {
 		rootOnlyMap.put(1, 27);
 		assertEquals(2,rootOnlyMap.size()); // There should be a left child from the root node and now have 2 values
 	}
+>>>>>>> 20808f74c9fd2cc9727a0ef28003a2fc339abec1
 
+	}
+	
 	@Test
 	public void testPutAll() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
@@ -255,18 +288,26 @@ public class TreeBidiMapTest {
 	public void testToString() {
 		fail("Not yet implemented");
 	}
+
 	
-	/*
-	 * Notes:
-	 * - For compare(a1,b1)
-	 * 	- a1 > b1 --> return a positive value
-	 * 	- a1 < b1 --> return a negative value
-	 * 	- a1 == b1 --> return 0
-	 */
+	
+	
 	
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
+<<<<<<< HEAD
+	 * Test Case 3 (line 524 and 528):
+	 * - Need cmp < 0 --> key in root must be greater than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the left child has the same key and value pair as the one passed in the put
+	 * 	- the right child is null
+	 * 
+	 */
+	
+	
+=======
 	 * Test Case 4 (line 538 and 542):
 	 * - Need cmp > 0 --> key in root must be less than the key in value
 	 * - Done with Map with one value in root
@@ -275,6 +316,7 @@ public class TreeBidiMapTest {
 	 * 	- the left child is null
 	 * 
 	 */
+>>>>>>> 20808f74c9fd2cc9727a0ef28003a2fc339abec1
 	
 	/*
 	 * Testing for method doPut; will test through method Put
