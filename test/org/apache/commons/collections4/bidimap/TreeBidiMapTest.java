@@ -16,6 +16,7 @@ public class TreeBidiMapTest {
 	private TreeBidiMap leftChildMap;
 	private TreeBidiMap bigBidiMap;
 	private TreeBidiMap rightChildMap;
+	private TreeBidiMap emptyMap;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,6 +31,7 @@ public class TreeBidiMapTest {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
+		emptyMap = dataClass.emptyTreeBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
 		bigBidiMap = dataClass.bigBidiMap();
 		rightChildMap = dataClass.valueOnRightChild();
@@ -79,10 +81,25 @@ public class TreeBidiMapTest {
 	public void testGet() {
 		fail("Not yet implemented");
 	}
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 1 (line 509):
+	 * - Need node == null --> checking root
+	 * - Done with empty Map
+	 * - Verify --> get first node and confirm key and value pair
+	 * 
+	 * 
+	 */
 
 	@Test
-	public void testPut() {
-		fail("Not yet implemented");
+	public void testPutIntoEmptyMap() {
+		emptyMap.put(4, 7);
+		assertEquals(1, emptyMap.size()); // Checks that size equals 1
+		assertEquals(4, emptyMap.firstKey()); // Check that the first key is correct
+		assertEquals(7, emptyMap.get(4)); // Check that the first value is correct
+		
 	}
 
 	@Test
@@ -195,16 +212,6 @@ public class TreeBidiMapTest {
 	 * 	- a1 == b1 --> return 0
 	 */
 	
-	/*
-	 * Testing for method doPut; will test through method Put
-	 * 
-	 * Test Case 1 (line 509):
-	 * - Need node == null --> checking root
-	 * - Done with empty Map
-	 * - Verify --> get first node and confirm key and value pair
-	 * 
-	 * 
-	 */
 
 	/*
      * Testing for method doPut; will test through method Put
