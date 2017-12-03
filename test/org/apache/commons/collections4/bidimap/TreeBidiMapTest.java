@@ -45,15 +45,15 @@ public class TreeBidiMapTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTreeBidiMap() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testHashCode() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testTreeBidiMap() {
+//		fail("Not yet implemented");
+//	}
 
 	@Test
 	public void testTreeBidiMapMapOfQextendsKQextendsV() {
@@ -77,25 +77,25 @@ public class TreeBidiMapTest {
 		assertEquals(1, this.rootOnlyMap.size());
 	}
 
-	@Test
-	public void testIsEmpty() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testContainsKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testContainsValue() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGet() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testIsEmpty() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testContainsKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testContainsValue() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGet() {
+//		fail("Not yet implemented");
+//	}
 	
 	/*
 	 * Testing for method doPut; will test through method Put
@@ -209,10 +209,10 @@ public class TreeBidiMapTest {
 		assertEquals(3,rightChildMap.size()); // Size should now be 3
 	}
 
-	@Test
-	public void testPutAll() {
-		
-	}
+//	@Test
+//	public void testPutAll() {
+//		
+//	}
 
 	@Test
 	public void testRemove() {
@@ -233,60 +233,60 @@ public class TreeBidiMapTest {
 	
 	
 	
-	@Test
-	public void testClear() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testRemoveValue() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFirstKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testLastKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNextKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPreviousKey() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeySet() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testValues() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEntrySet() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMapIterator() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testClear() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testRemoveValue() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testFirstKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testLastKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testNextKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testPreviousKey() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testKeySet() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testValues() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testEntrySet() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testMapIterator() {
+//		fail("Not yet implemented");
+//	}
 
 	@Test
 	public void testInverseBidiMap() {
@@ -301,14 +301,14 @@ public class TreeBidiMapTest {
 		assertEquals(inverse.get(15), bigBidiMap.getKey(15));
 	}
 
-	@Test
-	public void testEqualsObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testEqualsObject() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testToString() {
+//		fail("Not yet implemented");
+//	}
 
 }
