@@ -15,6 +15,7 @@ public class TreeBidiMapTest {
 	private TreeBidiMap rootOnlyMap;
 	private TreeBidiMap leftChildMap;
 	private TreeBidiMap bigBidiMap;
+	private TreeBidiMap rightChildMap;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -31,6 +32,7 @@ public class TreeBidiMapTest {
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
 		bigBidiMap = dataClass.bigBidiMap();
+		rightChildMap = dataClass.valueOnRightChild();
 
 	}
 
