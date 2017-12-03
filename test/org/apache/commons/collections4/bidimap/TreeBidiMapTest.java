@@ -13,6 +13,7 @@ public class TreeBidiMapTest {
 
 	private TreeBidiMap rootOnlyMap;
 	private TreeBidiMap leftChildMap;
+	private TreeBidiMap rightChildMap;
 
 
 	@BeforeClass
@@ -29,6 +30,7 @@ public class TreeBidiMapTest {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
+		rightChildMap = dataClass.valueOnRightChild();
 
 	}
 
