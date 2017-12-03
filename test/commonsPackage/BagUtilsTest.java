@@ -4,6 +4,8 @@ package commonsPackage;
  */
 import static org.junit.Assert.*;
 
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.TreeBidiMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,6 +37,7 @@ public class BagUtilsTest {
 		//fail("Not yet implemented");
 		assertEquals(0,0); //placeholder
 	}
+	
 	
 	/*
 	 * add(E object)
