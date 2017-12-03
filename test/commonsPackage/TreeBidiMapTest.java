@@ -20,6 +20,14 @@ public class TreeBidiMapTest {
 	}
 	
 	/*
+	 * Notes:
+	 * - For compare(a1,b1)
+	 * 	- a1 > b1 --> return a positive value
+	 * 	- a1 < b1 --> return a negative value
+	 * 	- a1 == b1 --> return 0
+	 */
+	
+	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
 	 * Test Case 1:
