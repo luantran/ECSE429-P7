@@ -318,22 +318,6 @@ public class TreeBidiMapTest {
 	 */
 >>>>>>> 20808f74c9fd2cc9727a0ef28003a2fc339abec1
 	
-	/*
-	 * Testing for method doPut; will test through method Put
-	 * 
-	 * Test Case 5 (line 524, 525 and 528):
-	 * - Need:
-	 * 	- cmp < 0 --> key in root must be greater than the key in value
-	 * 	- Key of the left node, new "node", needs to be greater than the key in value
-	 * - Done with Map with one value in root, and root with a left child
-	 * - Verify:
-	 * 	- verify that the right child is null
-	 *  - that there exist a left child
-	 *  	- put this in a new variable
-	 * 	- the new left child has the same key and value pair as the one passed in the put
-	 * 	- the new right child is null
-	 * 
-	 */
 	
 	/*
 	 * Testing for method doPut; will test through method Put
