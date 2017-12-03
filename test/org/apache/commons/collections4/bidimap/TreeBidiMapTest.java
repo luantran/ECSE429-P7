@@ -19,6 +19,7 @@ public class TreeBidiMapTest {
 	private TreeBidiMap leftChildMap;
 	private TreeBidiMap bigBidiMap;
 	private TreeBidiMap rightChildMap;
+	private TreeBidiMap emptyMap;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -33,6 +34,7 @@ public class TreeBidiMapTest {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
+		emptyMap = dataClass.emptyTreeBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
 		bigBidiMap = dataClass.bigBidiMap();
 		rightChildMap = dataClass.valueOnRightChild();
@@ -94,10 +96,41 @@ public class TreeBidiMapTest {
 	public void testGet() {
 		fail("Not yet implemented");
 	}
+	
+	/*
+	 * Testing for method doPut; will test through method Put
+	 * 
+	 * Test Case 1 (line 509):
+	 * - Need node == null --> checking root
+	 * - Done with empty Map
+	 * - Verify --> get first node and confirm key and value pair
+	 * 
+	 * 
+	 */
 
 	@Test
-	public void testPut() {
-		fail("Not yet implemented");
+	public void testPutIntoEmptyMap() {
+		emptyMap.put(4, 7);
+		assertEquals(1, emptyMap.size()); // Checks that size equals 1
+		assertEquals(4, emptyMap.firstKey()); // Check that the first key is correct
+		assertEquals(7, emptyMap.get(4)); // Check that the first value is correct
+		
+	}
+	
+	/*
+     * Testing for method doPut; will test through method Put
+     *
+     * Test Case 2 (line 521):
+     * - Need cmp == 0 --> make key of key, value pair the same as the root
+     * - Done with Map with one value in root
+     * - Verify --> get an IllegalArgumentException
+     *
+     */
+	
+	@Test
+	public void testPutDuplicateKey() {
+		rootOnlyMap.put(5, 15); // Add duplicate key and no exception thrown
+		// This will not happen as line 505-506 will remove the duplicate first
 	}
 
 	@Test
@@ -179,11 +212,15 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testInverseBidiMap() {
-		System.out.println(this.bigBidiMap.toString());
 
 		OrderedBidiMap inverse = this.bigBidiMap.inverseBidiMap();
-		System.out.println(inverse.toString());
+		assertEquals(inverse.get(5), bigBidiMap.getKey(5));
+		assertEquals(inverse.get(7), bigBidiMap.getKey(7));
 		assertEquals(inverse.get(3), bigBidiMap.getKey(3));
+		assertEquals(inverse.get(12), bigBidiMap.getKey(12));
+		assertEquals(inverse.get(1), bigBidiMap.getKey(1));
+		assertEquals(inverse.get(24), bigBidiMap.getKey(24));
+		assertEquals(inverse.get(15), bigBidiMap.getKey(15));
 	}
 
 	@Test
@@ -203,27 +240,6 @@ public class TreeBidiMapTest {
 	 * 	- a1 < b1 --> return a negative value
 	 * 	- a1 == b1 --> return 0
 	 */
-	
-	/*
-	 * Testing for method doPut; will test through method Put
-	 * 
-	 * Test Case 1 (line 509):
-	 * - Need node == null --> checking root
-	 * - Done with empty Map
-	 * - Verify --> get first node and confirm key and value pair
-	 * 
-	 * 
-	 */
-
-	/*
-     * Testing for method doPut; will test through method Put
-     *
-     * Test Case 2 (line 521):
-     * - Need cmp == 0 --> make key of key, value pair the same as the root
-     * - Done with Map with one value in root
-     * - Verify --> get an IllegalArgumentException
-     *
-     */
 	
 	/*
 	 * Testing for method doPut; will test through method Put

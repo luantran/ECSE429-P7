@@ -37,7 +37,7 @@ public class TreeBidiMapData {
 		return rightChildMap;
 	}
 	
-public TreeBidiMap bigBidiMap() {
+public TreeBidiMap bigBidiMap() { //Testing testInverseBidiMap
 		
 		TreeBidiMap bigBidiMap = new TreeBidiMap();
 		bigBidiMap.put(5, 10);
