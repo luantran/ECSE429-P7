@@ -1,6 +1,6 @@
 package org.apache.commons.collections4.bidimap;
 
-import data.*;
+import data.TreeBidiMapData;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -11,8 +11,13 @@ import org.junit.Test;
 
 public class TreeBidiMapTest {
 
+	private TreeBidiMap rootOnlyMap;
+	private TreeBidiMap leftChildMap;
+
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	@AfterClass
@@ -21,7 +26,10 @@ public class TreeBidiMapTest {
 
 	@Before
 	public void setUp() throws Exception {
-		TreeBidiMap newBidiMap = T
+		TreeBidiMapData dataClass = new TreeBidiMapData();
+		rootOnlyMap = dataClass.withRootOnlyBidiMap();
+		leftChildMap = dataClass.valueOnLeftChild();
+
 	}
 
 	@After
@@ -45,7 +53,7 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testSize() {
-		fail("Not yet implemented");
+		assertEquals(1, this.rootOnlyMap.size());
 	}
 
 	@Test
@@ -80,9 +88,21 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testRemove() {
-		fail("Not yet implemented");
+		rootOnlyMap.remove(5);
+		assertEquals(0, rootOnlyMap.size());
 	}
-
+	
+	@Test
+	public void testRemoveLeftChild() {
+		leftChildMap.remove(3);
+		assertEquals(1, leftChildMap.size());
+	}
+	@Test
+	public void testRemoveLeftChildFixup() {
+		leftChildMap.remove(5);
+		assertEquals(1, leftChildMap.size());
+	}
+	
 	@Test
 	public void testClear() {
 		fail("Not yet implemented");
