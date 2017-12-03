@@ -101,6 +101,22 @@ public class TreeBidiMapTest {
 		assertEquals(7, emptyMap.get(4)); // Check that the first value is correct
 		
 	}
+	
+	/*
+     * Testing for method doPut; will test through method Put
+     *
+     * Test Case 2 (line 521):
+     * - Need cmp == 0 --> make key of key, value pair the same as the root
+     * - Done with Map with one value in root
+     * - Verify --> get an IllegalArgumentException
+     *
+     */
+	
+	@Test
+	public void testPutDuplicateKey() {
+		rootOnlyMap.put(5, 15); // Add duplicate key and no exception thrown
+		// This will not happen as line 505-506 will remove the duplicate first
+	}
 
 	@Test
 	public void testPutAll() {
@@ -205,17 +221,6 @@ public class TreeBidiMapTest {
 	 * 	- a1 < b1 --> return a negative value
 	 * 	- a1 == b1 --> return 0
 	 */
-	
-
-	/*
-     * Testing for method doPut; will test through method Put
-     *
-     * Test Case 2 (line 521):
-     * - Need cmp == 0 --> make key of key, value pair the same as the root
-     * - Done with Map with one value in root
-     * - Verify --> get an IllegalArgumentException
-     *
-     */
 	
 	/*
 	 * Testing for method doPut; will test through method Put
