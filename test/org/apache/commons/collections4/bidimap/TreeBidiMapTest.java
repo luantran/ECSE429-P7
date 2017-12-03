@@ -181,10 +181,8 @@ public class TreeBidiMapTest {
 
 	@Test
 	public void testInverseBidiMap() {
-		System.out.println(this.bigBidiMap.toString());
 
 		OrderedBidiMap inverse = this.bigBidiMap.inverseBidiMap();
-		System.out.println(inverse.toString());
 		assertEquals(inverse.get(5), bigBidiMap.getKey(5));
 		assertEquals(inverse.get(7), bigBidiMap.getKey(7));
 		assertEquals(inverse.get(3), bigBidiMap.getKey(3));
