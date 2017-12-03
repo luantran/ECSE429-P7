@@ -30,7 +30,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
-	 * Test Case 1:
+	 * Test Case 1 (line 509):
 	 * - Need node == null --> checking root
 	 * - Done with empty Map
 	 * - Verify --> get first node and confirm key and value pair
@@ -41,7 +41,7 @@ public class TreeBidiMapTest {
 	/*
      * Testing for method doPut; will test through method Put
      *
-     * Test Case 2:
+     * Test Case 2 (line 521):
      * - Need cmp == 0 --> make key of key, value pair the same as the root
      * - Done with Map with one value in root
      * - Verify --> get an IllegalArgumentException
@@ -51,7 +51,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
-	 * Test Case 3:
+	 * Test Case 3 (line 524 and 528):
 	 * - Need cmp < 0 --> key in root must be greater than the key in value
 	 * - Done with Map with one value in root
 	 * - Verify:
@@ -63,7 +63,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
-	 * Test Case 4:
+	 * Test Case 4 (line 538 and 542):
 	 * - Need cmp > 0 --> key in root must be less than the key in value
 	 * - Done with Map with one value in root
 	 * - Verify:
@@ -75,7 +75,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
-	 * Test Case 5:
+	 * Test Case 5 (line 524, 525 and 528):
 	 * - Need:
 	 * 	- cmp < 0 --> key in root must be greater than the key in value
 	 * 	- Key of the left node, new "node", needs to be greater than the key in value
@@ -92,7 +92,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
-	 * Test Case 6:
+	 * Test Case 6 (line 538, 539, and 542):
 	 * - Need:
 	 * 	- cmp > 0 --> key in root must be less than the key in value
 	 * 	- Key of the right node, new "node", needs to be less than the key in value
