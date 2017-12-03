@@ -135,6 +135,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
+<<<<<<< HEAD
 	 * Test Case 4 (line 538 and 542):
 	 * - Need cmp > 0 --> key in root must be less than the key in value
 	 * - Done with Map with one value in root
@@ -147,6 +148,21 @@ public class TreeBidiMapTest {
 	public void testPutGreaterKey() {
 		rootOnlyMap.put(8, 15);
 		assertEquals(2, rootOnlyMap.size());
+=======
+	 * Test Case 3 (line 524 and 528):
+	 * - Need cmp < 0 --> key in root must be greater than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the left child has the same key and value pair as the one passed in the put
+	 * 	- the right child is null
+	 * 
+	 */
+	@Test
+	public void testPutSmallerKey() {
+		rootOnlyMap.put(1, 27);
+		assertEquals(2,rootOnlyMap.size()); // There should be a left child from the root node and now have 2 values
+	}
+>>>>>>> 20808f74c9fd2cc9727a0ef28003a2fc339abec1
 
 	}
 	
@@ -257,6 +273,7 @@ public class TreeBidiMapTest {
 	/*
 	 * Testing for method doPut; will test through method Put
 	 * 
+<<<<<<< HEAD
 	 * Test Case 3 (line 524 and 528):
 	 * - Need cmp < 0 --> key in root must be greater than the key in value
 	 * - Done with Map with one value in root
@@ -267,6 +284,16 @@ public class TreeBidiMapTest {
 	 */
 	
 	
+=======
+	 * Test Case 4 (line 538 and 542):
+	 * - Need cmp > 0 --> key in root must be less than the key in value
+	 * - Done with Map with one value in root
+	 * - Verify:
+	 * 	- the right child has the same key and value pair as the one passed in the put
+	 * 	- the left child is null
+	 * 
+	 */
+>>>>>>> 20808f74c9fd2cc9727a0ef28003a2fc339abec1
 	
 	/*
 	 * Testing for method doPut; will test through method Put
