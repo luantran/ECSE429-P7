@@ -5,33 +5,33 @@ import org.apache.commons.collections4.bidimap.TreeBidiMap;
 
 public class TreeBidiMapData {
 	
-	public BidiMap emptyTreeBidiMap(){
+	public TreeBidiMap emptyTreeBidiMap(){
 		
-		BidiMap emptyMap = new TreeBidiMap();
+		TreeBidiMap emptyMap = new TreeBidiMap();
 		return emptyMap;
 		
 	}
 	
-	public BidiMap withRootBidiMap() {
+	public TreeBidiMap withRootOnlyBidiMap() {
 		
-		BidiMap mapRoot = new TreeBidiMap<>();
+		TreeBidiMap mapRoot = new TreeBidiMap<>();
 		mapRoot.put(5, 10);
 		return mapRoot;
 		
 	}
 	
-	public BidiMap valueOnLeftChild() {
+	public TreeBidiMap valueOnLeftChild() {
 		
-		BidiMap leftChildMap = new TreeBidiMap();
+		TreeBidiMap leftChildMap = new TreeBidiMap();
 		leftChildMap.put(5, 10);
 		leftChildMap.put(3, 27);
 		return leftChildMap;
 		
 	}
 	
-	public BidiMap valueOnRightChild() {
+	public TreeBidiMap valueOnRightChild() {
 		
-		BidiMap rightChildMap = new TreeBidiMap();
+		TreeBidiMap rightChildMap = new TreeBidiMap();
 		rightChildMap.put(5, 10);
 		rightChildMap.put(7, 12);
 		return rightChildMap;
