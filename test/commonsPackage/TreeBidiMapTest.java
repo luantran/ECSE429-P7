@@ -30,4 +30,12 @@ public class TreeBidiMapTest {
 	 * 
 	 */
 
+	/*
+     * Testing for method doPut; will test through method Put
+     *
+     * Test Case 2:
+     * - Need cmp == 0 --> make key of key, value pair the same as the root
+     * - Verify --> get an IllegalArgumentException
+     *
+     */
 }
