@@ -35,6 +35,19 @@ public class doEqualsTests {
 	@Test
 	public void doEqualsKeyTest1() {
 		assertTrue(bigBidiMap.equals(5)); // NOT WORKING! WHAT DO I COMPARE THIS EQUALS TO
+		
+		/*
+		 *  @Override
+    		public boolean equals(final Object obj) {
+        	return this.doEquals(obj, KEY);
+   			}
+		 * 
+        	@Override
+        	public boolean equals(final Object obj) {
+            return TreeBidiMap.this.doEquals(obj, DataElement.VALUE);
+         	}
+		 * 
+		 */
 	}
 
 }
