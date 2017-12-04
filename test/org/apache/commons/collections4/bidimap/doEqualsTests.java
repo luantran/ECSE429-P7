@@ -8,7 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import data.TreeBidiMapData;
+
 public class doEqualsTests {
+	
+	private TreeBidiMap bigBidiMap;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +24,8 @@ public class doEqualsTests {
 
 	@Before
 	public void setUp() throws Exception {
+		TreeBidiMapData dataClass = new TreeBidiMapData();
+		bigBidiMap = dataClass.bigBidiMap();
 	}
 
 	@After
@@ -27,8 +33,8 @@ public class doEqualsTests {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void doEqualsKeyTest1() {
+		assertTrue(bigBidiMap.equals(5)); // NOT WORKING! WHAT DO I COMPARE THIS EQUALS TO
 	}
 
 }
