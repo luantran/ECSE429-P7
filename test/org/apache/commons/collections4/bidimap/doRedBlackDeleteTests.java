@@ -51,11 +51,21 @@ public class doRedBlackDeleteTests {
 	 */
 	@Test
 	public void testRemoveRoot() {
-		rootOnlyMap.remove(5);
-		assertEquals(0,rootOnlyMap.size());
+//		rootOnlyMap.remove(5);
+//		assertEquals(0,rootOnlyMap.size());
 		
 	}
 	
-	
+	/*
+	 * Deleting root so that left child becomes root
+	 * Coverage: 972, 979, 982, 994
+	 * 1014
+	 * 
+	 */
+	@Test
+	public void testRemoveRoot2() {
+		twoLevelTree.remove(20);
+		assertEquals(2,twoLevelTree.size());
+	}
 
 }
