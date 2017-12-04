@@ -517,7 +517,7 @@ public class TreeBidiMap<K extends Comparable<K>, V extends Comparable<V>>
             // add new mapping
             while (true) {
                 final int cmp = compare(key, node.getKey());
-            
+             
                 if (cmp == 0) {
                     // shouldn't happen
                     throw new IllegalArgumentException("Cannot store a duplicate key (\"" + key + "\") in this Map");
