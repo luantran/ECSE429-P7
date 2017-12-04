@@ -35,7 +35,7 @@ public class doPutTests {
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		emptyMap = dataClass.emptyTreeBidiMap();
 		leftChildMap = dataClass.valueOnLeftChild();
-		bigBidiMap = dataClass.bigBidiMap();
+		// bigBidiMap = dataClass.bigBidiMap();
 		rightChildMap = dataClass.valueOnRightChild();
 	}
 

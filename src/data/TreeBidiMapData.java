@@ -51,6 +51,17 @@ public TreeBidiMap bigBidiMap() { //Testing testInverseBidiMap
 		return bigBidiMap;
 	}
 	
+	public TreeBidiMap twoLevelBidiMap() {
+		
+		TreeBidiMap twolevelTree = new TreeBidiMap();
+		twolevelTree.put(20, 55);
+		twolevelTree.put(10, 15);
+		twolevelTree.put(30, 29);
+		
+		return twolevelTree;
+		
+	}
+	
 	
 
 }
