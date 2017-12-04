@@ -8,8 +8,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class doRedBlackDeleteTests {
+import data.TreeBidiMapData;
 
+public class doRedBlackDeleteTests {
+	
+	private TreeBidiMap rootOnlyMap;
+	private TreeBidiMap leftChildMap;
+	private TreeBidiMap bigBidiMap;
+	private TreeBidiMap rightChildMap;
+	private TreeBidiMap emptyMap;
+	private TreeBidiMap twoLevelTree;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,15 +29,33 @@ public class doRedBlackDeleteTests {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		TreeBidiMapData dataClass = new TreeBidiMapData();
+		rootOnlyMap = dataClass.withRootOnlyBidiMap();
+		emptyMap = dataClass.emptyTreeBidiMap();
+		leftChildMap = dataClass.valueOnLeftChild();
+		// bigBidiMap = dataClass.bigBidiMap();
+		rightChildMap = dataClass.valueOnRightChild();
+		twoLevelTree = dataClass.twoLevelBidiMap();
+		
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	/*
+	 * Deleting tree with only root so that tree is empty
+	 * Coverage:
+	 * 968, 1002
+	 */
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testRemoveRoot() {
+		rootOnlyMap.remove(5);
+		assertEquals(0,rootOnlyMap.size());
+		
 	}
+	
+	
 
 }
