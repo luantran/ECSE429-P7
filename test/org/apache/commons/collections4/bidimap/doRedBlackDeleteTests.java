@@ -64,7 +64,19 @@ public class doRedBlackDeleteTests {
 	 */
 	@Test
 	public void testRemoveRoot2() {
-		twoLevelTree.remove(20);
+//		twoLevelTree.remove(20);
+//		assertEquals(2,twoLevelTree.size());
+	}
+	
+	/*
+	 * Deleting left child when the tree is balanced and height of 1
+	 * Coverage:
+	 * 1012
+	 * 984, 994
+	 */
+	@Test
+	public void testRemoveLeftChild() {
+		twoLevelTree.remove(10);
 		assertEquals(2,twoLevelTree.size());
 	}
 
