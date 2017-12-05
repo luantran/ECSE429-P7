@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.apache.commons.collections4.OrderedBidiMap;
 import org.junit.After;
@@ -75,6 +76,24 @@ public class TreeBidiMapTest {
 	@Test
 	public void testSize() {
 		assertEquals(1, this.rootOnlyMap.size());
+	}
+	
+	/*
+	 * Finding the smallest value in tree; there should be one
+	 * Covers: leastNode
+	 */
+	@Test
+	public void getLeastNodeExist() {
+		assertEquals(1,bigBidiMap.firstKey());
+	}
+	
+	/*
+	 * When the tree is empty and an attempt is made to find the smallest node
+	 * Will not go into leastNode because there is an exception when the tree is empty
+	 */
+	@Test(expected=NoSuchElementException.class)
+	public void getLeastNodeEmpty() {
+		emptyMap.firstKey();
 	}
 
 //	@Test
