@@ -25,10 +25,48 @@ public class insertValueTests {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	/*
+	 * Cannot test duplicate values, case gets caught early on
+	 * 
+	 */
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testInsertValueRightNodeToRoot(){
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(5, 10);
+		testMap.put(12, 20);
+
+	}
+	
+	@Test
+	public void testInsertValueLeftNodeToRoot() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(5, 10);
+		testMap.put(6, 5);
+	}
+	
+	@Test
+	public void testInsertValue2RightNodesToRoot() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(5, 10);
+		testMap.put(6, 20);
+		testMap.put(7, 25);
+	}
+	
+	@Test
+	public void testInsertValue2LeftNodesToRoot() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(5, 10);
+		testMap.put(6, 5);
+		testMap.put(7, 1);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testInsertDuplicateValue() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(5, 10);
+		testMap.put(6, 10);
 	}
 
 }

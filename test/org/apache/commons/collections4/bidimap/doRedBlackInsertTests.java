@@ -68,7 +68,7 @@ public class doRedBlackInsertTests {
 	
 	@Test
 	public void test5() {
-		TreeBidiMap bigBidiMap = new TreeBidiMap();
+		TreeBidiMap<Integer, Integer> bigBidiMap = new TreeBidiMap<Integer, Integer>();
 		bigBidiMap.put(5, 10);
 		bigBidiMap.put(7, 12);
 		bigBidiMap.put(3, 27);
