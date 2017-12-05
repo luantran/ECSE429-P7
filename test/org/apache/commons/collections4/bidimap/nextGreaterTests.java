@@ -17,7 +17,7 @@ public class nextGreaterTests {
 	private TreeBidiMap bigBidiMap;
 	private TreeBidiMap rightChildMap;
 	private TreeBidiMap emptyMap;
-	private TreeBidiMap twoLevelTree;
+	private TreeBidiMap<Integer, Integer> fourLevelTree;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -31,46 +31,45 @@ public class nextGreaterTests {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
-		emptyMap = dataClass.emptyTreeBidiMap();
-		leftChildMap = dataClass.valueOnLeftChild();
-		bigBidiMap = dataClass.bigBidiMap();
-		rightChildMap = dataClass.valueOnRightChild();
-		twoLevelTree = dataClass.twoLevelBidiMap();
+//		emptyMap = dataClass.emptyTreeBidiMap();
+//		leftChildMap = dataClass.valueOnLeftChild();
+//		bigBidiMap = dataClass.bigBidiMap();
+//		rightChildMap = dataClass.valueOnRightChild();
+		fourLevelTree = dataClass.fourLevelBidiMap();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	/*
+	 * Cannot test null because exception gets thrown
+	 */
+//	@Test
+//	public void testNextGreaterNull() {
+//		assertNull(fourLevelTree.nextKey(null));
+//	}
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-		
-		/*
-    		public K nextKey(final K key) {
-        		checkKey(key);
-        		final Node<K, V> node = nextGreater(lookupKey(key), KEY);
-        		return node == null ? null : node.getKey();
-    		}
-		 * 
-        	@Override
-        	public V nextKey(final V key) {
-            	checkKey(key);
-            	final Node<K, V> node = nextGreater(TreeBidiMap.this.<V>lookup(key, VALUE), VALUE);
-            	return node == null ? null : node.getValue();
-        	}
-		 * 
-		 */
-		 
-        	@Override
-        	public boolean equals(final Object obj) {
-            return TreeBidiMap.this.doEquals(obj, DataElement.VALUE);
-         	}
-		 * 
-		 */
-		
-		
-		
+	public void testNextGreaterWithRight() {
+		fourLevelTree.nextKey(13);
 	}
+//	
+	@Test
+	public void testNextGreaterWithLeft() {
+		fourLevelTree.nextKey(1);
+	}
+	
+	@Test
+	public void testNextGreaterWithParent() {
+		fourLevelTree.nextKey(6);
+	}
+	
+	@Test
+	public void testNextGreaterWithNullParent() {
+		rootOnlyMap.nextKey(5);
+	}
+	
+	
 
 }

@@ -73,9 +73,9 @@ public TreeBidiMap fourLevelBidiMap() {
 	
 }
 	
-	public TreeBidiMap twoLevelBidiMap() {
+	public TreeBidiMap<Integer, Integer> twoLevelBidiMap() {
 		
-		TreeBidiMap twolevelTree = new TreeBidiMap();
+		TreeBidiMap<Integer, Integer> twolevelTree = new TreeBidiMap<Integer, Integer>();
 		twolevelTree.put(20, 55);
 		twolevelTree.put(10, 15);
 		twolevelTree.put(30, 29);
