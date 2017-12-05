@@ -79,7 +79,7 @@ public class TreeBidiMapTest {
 	}
 	
 	/*
-	 * Finding the smallest value in tree; there should be one
+	 * Finding the smallest key in tree; there should be one
 	 * Covers: leastNode
 	 */
 	@Test
@@ -95,6 +95,25 @@ public class TreeBidiMapTest {
 	public void getLeastNodeEmpty() {
 		emptyMap.firstKey();
 	}
+	
+	/*
+	 * Finding the largest key in the tree; there should be one
+	 * Covers: greatestNode
+	 */
+	@Test
+	public void getGreatestNodeExist() {
+		assertEquals(24, bigBidiMap.lastKey());
+	}
+	
+	/*
+	 * When the tree is empty and an attempt is made to find the largest node
+	 * Will not go into greatestNode because there is an exception when the tree is empty
+	 */
+	@Test(expected=NoSuchElementException.class)
+	public void getGreatesNodeEmpty() {
+		emptyMap.lastKey();
+	}
+	
 
 //	@Test
 //	public void testIsEmpty() {
