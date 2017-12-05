@@ -31,7 +31,7 @@ public class nextGreaterTests {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
-//		emptyMap = dataClass.emptyTreeBidiMap();
+		emptyMap = dataClass.emptyTreeBidiMap();
 //		leftChildMap = dataClass.valueOnLeftChild();
 //		bigBidiMap = dataClass.bigBidiMap();
 //		rightChildMap = dataClass.valueOnRightChild();
@@ -52,22 +52,27 @@ public class nextGreaterTests {
 	
 	@Test
 	public void testNextGreaterWithRight() {
-		fourLevelTree.nextKey(13);
+		assertEquals(15, (int)fourLevelTree.nextKey(13));
 	}
 //	
 	@Test
-	public void testNextGreaterWithLeft() {
-		fourLevelTree.nextKey(1);
+	public void testNextGreaterNoRight() {
+		assertEquals(5, (int)fourLevelTree.nextKey(1));
 	}
 	
 	@Test
-	public void testNextGreaterWithParent() {
-		fourLevelTree.nextKey(6);
+	public void testNextGreaterNoRightWithRightParent() {
+		assertEquals(8, (int)fourLevelTree.nextKey(6));
 	}
 	
 	@Test
-	public void testNextGreaterWithNullParent() {
-		rootOnlyMap.nextKey(5);
+	public void testNextGreaterNoRightWithNullParent() {
+		assertNull(rootOnlyMap.nextKey(5));
+	}
+	
+	@Test
+	public void testNextGreaterEmpty() {
+		assertNull(emptyMap.nextKey(5));
 	}
 	
 	

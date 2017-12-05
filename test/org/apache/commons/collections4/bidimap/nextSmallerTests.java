@@ -17,7 +17,7 @@ public class nextSmallerTests {
 	private TreeBidiMap bigBidiMap;
 	private TreeBidiMap rightChildMap;
 	private TreeBidiMap emptyMap;
-	private TreeBidiMap twoLevelTree;
+	private TreeBidiMap<Integer, Integer> fourLevelTree;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -32,33 +32,46 @@ public class nextSmallerTests {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		emptyMap = dataClass.emptyTreeBidiMap();
-		leftChildMap = dataClass.valueOnLeftChild();
-		bigBidiMap = dataClass.bigBidiMap();
-		rightChildMap = dataClass.valueOnRightChild();
-		twoLevelTree = dataClass.twoLevelBidiMap();
+//		leftChildMap = dataClass.valueOnLeftChild();
+//		bigBidiMap = dataClass.bigBidiMap();
+//		rightChildMap = dataClass.valueOnRightChild();
+		fourLevelTree = dataClass.fourLevelBidiMap();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-		/*
-    	public K previousKey(final K key) {
-        	checkKey(key);
-        	final Node<K, V> node = nextSmaller(lookupKey(key), KEY);
-        	return node == null ? null : node.getKey();
-    }
-	 * 
-        public V previousKey(final V key) {
-            checkKey(key);
-            final Node<K, V> node = TreeBidiMap.this.nextSmaller(TreeBidiMap.this.<V>lookup(key, VALUE), VALUE);
-            return node == null ? null : node.getValue();
-        }
-	 * 
+	/*
+	 * Cannot test null because exception gets thrown
 	 */
+//	@Test
+//	public void testNextGreaterNull() {
+//		assertNull(fourLevelTree.nextKey(null));
+//	}
+	
+	@Test
+	public void testNextSmallerWithLeft() {
+		assertEquals(12, (int)fourLevelTree.previousKey(13));
 	}
-
+//	
+	@Test
+	public void testNextSmallerNoLeft() {
+		assertEquals(5, (int)fourLevelTree.previousKey(6));
+	}
+	
+	@Test
+	public void testNextSmallerNoLeftWithLeftParent() {
+		assertNull(fourLevelTree.previousKey(1));
+	}
+	
+	@Test
+	public void testNextSmallerNoLeftWithNullParent() {
+		assertNull(rootOnlyMap.previousKey(5));
+	}
+	
+	@Test
+	public void testNextSmallerEmpty() {
+		assertNull(emptyMap.nextKey(5));
+	}
 }

@@ -47,6 +47,11 @@ public class lookupTest {
 		
 	}
 
+	/*
+	 * Coverage: All lookup test lines
+	 * 
+	 * Tests public methods: containsKey, containsValue, get and getKey
+	 */
 	@Test
 	public void testContainsOnlyRoot() {
 		assertTrue(rootOnlyMap.containsKey(5));
@@ -56,7 +61,7 @@ public class lookupTest {
 	}
 	
 	@Test
-	public void testContainsTwoNodesRight() {
+	public void testContainsRightNode() {
 		assertTrue(rightChildMap.containsKey(7));
 		assertTrue(rightChildMap.containsValue(12));
 		assertEquals(12, rightChildMap.get(7));

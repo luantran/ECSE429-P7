@@ -38,7 +38,7 @@ public class doRedBlackInsertTests {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
 		testMap.put(5, 10);
 		testMap.put(12, 20);
-
+		assertEquals(2, testMap.size());
 	}
 	
 	@Test
@@ -47,6 +47,8 @@ public class doRedBlackInsertTests {
 		testMap.put(5, 10);
 		testMap.put(12, 20);
 		testMap.put(4, 15);
+		assertEquals(3, testMap.size());
+
 	}
 	
 	
@@ -56,6 +58,8 @@ public class doRedBlackInsertTests {
 		testMap.put(5, 10);
 		testMap.put(12, 20);
 		testMap.put(15, 14);
+		assertEquals(3, testMap.size());
+
 	}
 	
 	@Test
@@ -64,6 +68,8 @@ public class doRedBlackInsertTests {
 		testMap.put(5, 10);
 		testMap.put(3, 28);
 		testMap.put(4, 15);
+		assertEquals(3, testMap.size());
+
 	}
 	
 	@Test
@@ -79,6 +85,8 @@ public class doRedBlackInsertTests {
 		bigBidiMap.put(6, 10);
 		bigBidiMap.put(9, 12);
 		bigBidiMap.put(23, 27);
+		assertEquals(7, bigBidiMap.size());
+
 	}
 	
 
