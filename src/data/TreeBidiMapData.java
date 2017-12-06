@@ -51,6 +51,35 @@ public TreeBidiMap bigBidiMap() { //Testing testInverseBidiMap
 		return bigBidiMap;
 	}
 
+//Key modification testing doEquals
+public TreeBidiMap bigBidiMap2() { 
+	
+	TreeBidiMap bigBidiMap2 = new TreeBidiMap();
+	bigBidiMap2.put(5, 10);
+	bigBidiMap2.put(7, 12);
+	bigBidiMap2.put(6, 27);
+	bigBidiMap2.put(77, 80);
+	bigBidiMap2.put(4, 45);
+	bigBidiMap2.put(2, 3);
+	bigBidiMap2.put(5, 13);
+
+	return bigBidiMap2;
+}
+//Key modification from ints to String for doEquals Tests
+public TreeBidiMap bigBidiMap3() { 
+	
+	TreeBidiMap bigBidiMap3 = new TreeBidiMap();
+	bigBidiMap3.put("seven", "one");
+	bigBidiMap3.put("six", "two");
+	bigBidiMap3.put("five", "three");
+	bigBidiMap3.put("four", "four");
+	bigBidiMap3.put("three", "five");
+	bigBidiMap3.put("two", "six");
+	bigBidiMap3.put("one", "seven");
+
+	return bigBidiMap3;
+}
+
 public TreeBidiMap fourLevelBidiMap() {
 	TreeBidiMap<Integer, Integer> fourLevelTree = new TreeBidiMap<Integer, Integer>();
 	fourLevelTree.put(13, 13);
