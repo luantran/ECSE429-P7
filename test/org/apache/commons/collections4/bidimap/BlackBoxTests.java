@@ -106,6 +106,14 @@ public class BlackBoxTests {
 	}
 	
 	/*
+	 * No errors, does not allow search for key which is not of the same type as the ones in the Tree
+	 */
+	@Test(expected=ClassCastException.class)
+	public void checkKeyTest4() {
+		bigBidiMap.containsKey("Help");
+	}
+	
+	/*
 	 * The Following "checkValueTest" Relate to lookupValue
 	 * No errors, returns true for checkValueTest
 	 */

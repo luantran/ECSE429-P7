@@ -50,10 +50,32 @@ public TreeBidiMap bigBidiMap() { //Testing testInverseBidiMap
 
 		return bigBidiMap;
 	}
+
+public TreeBidiMap fourLevelBidiMap() {
+	TreeBidiMap<Integer, Integer> fourLevelTree = new TreeBidiMap<Integer, Integer>();
+	fourLevelTree.put(13, 13);
+	fourLevelTree.put(8, 8);
+	fourLevelTree.put(32, 32);
+	fourLevelTree.put(5, 5);
+	fourLevelTree.put(10, 10);
+	fourLevelTree.put(23, 23);
+	fourLevelTree.put(37, 37);
+	fourLevelTree.put(1, 1);
+	fourLevelTree.put(6, 6);
+	fourLevelTree.put(9, 9);
+	fourLevelTree.put(12, 12);
+	fourLevelTree.put(15, 15);
+	fourLevelTree.put(25, 25);
+	fourLevelTree.put(34, 34);
+	fourLevelTree.put(43, 43);
+
+	return fourLevelTree;
 	
-	public TreeBidiMap twoLevelBidiMap() {
+}
+	
+	public TreeBidiMap<Integer, Integer> twoLevelBidiMap() {
 		
-		TreeBidiMap twolevelTree = new TreeBidiMap();
+		TreeBidiMap<Integer, Integer> twolevelTree = new TreeBidiMap<Integer, Integer>();
 		twolevelTree.put(20, 55);
 		twolevelTree.put(10, 15);
 		twolevelTree.put(30, 29);

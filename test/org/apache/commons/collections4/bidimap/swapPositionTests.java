@@ -7,8 +7,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import data.TreeBidiMapData;
 
 public class swapPositionTests {
+
+	private TreeBidiMap fourLevelTree;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +23,8 @@ public class swapPositionTests {
 
 	@Before
 	public void setUp() throws Exception {
+		TreeBidiMapData dataClass = new TreeBidiMapData();
+		 fourLevelTree = dataClass.fourLevelBidiMap();
 	}
 
 	@After
@@ -27,8 +32,44 @@ public class swapPositionTests {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void removeTest() {
+		fourLevelTree.remove(13);
+	}
+	
+	@Test
+	public void removeTest2() {
+		fourLevelTree.remove(8);
+
+	}
+	
+	@Test
+	public void removeTest3() {
+		fourLevelTree.remove(23);
+	}
+	
+	@Test
+	public void removeTest4() {
+		fourLevelTree.remove(10);
+	}
+	@Test
+	public void removeTest5() {
+		fourLevelTree.remove(32);
+	}
+	@Test
+	public void removeTest6() {
+		fourLevelTree.remove(5);
+	}
+	@Test
+	public void removeTest7() {
+		fourLevelTree.remove(23);
+	}
+	@Test
+	public void removeTest8() {
+		fourLevelTree.remove(37);
+	}
+	@Test
+	public void removeTest9() {
+		fourLevelTree.remove(1);
 	}
 
 }
