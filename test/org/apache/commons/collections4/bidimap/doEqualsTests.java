@@ -13,7 +13,8 @@ import data.TreeBidiMapData;
 public class doEqualsTests {
 	
 	private TreeBidiMap bigBidiMap;
-
+	private TreeBidiMap leftChildMap;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -26,28 +27,28 @@ public class doEqualsTests {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		bigBidiMap = dataClass.bigBidiMap();
+		leftChildMap = dataClass.valueOnLeftChild();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	@Test 
+	//Comparing Both bigBidiMaps
 	public void doEqualsKeyTest1() {
-		assertTrue(bigBidiMap.equals(5)); // NOT WORKING! WHAT DO I COMPARE THIS EQUALS TO
-		
-		/*
-		 *  @Override
-    		public boolean equals(final Object obj) {
-        	return this.doEquals(obj, KEY);
-   			}
-		 * 
-        	@Override
-        	public boolean equals(final Object obj) {
-            return TreeBidiMap.this.doEquals(obj, DataElement.VALUE);
-         	}
-		 * 
-		 */
+
+		assertEquals(bigBidiMap, bigBidiMap);
+
 	}
+	
+	//Comparing two different maps
+	public void doEqualsKeyTest2() {
+
+		//assertEquals(bigBidiMap.size(), leftChildMap.size());
+		System.out.println(bigBidiMap.equals(leftChildMap));
+
+	}
+
 
 }
