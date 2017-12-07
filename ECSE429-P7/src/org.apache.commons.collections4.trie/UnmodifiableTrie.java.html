@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>UnmodifiableTrie.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (7-Dec-2017 3:34:43 PM)</a> &gt; <a href="../../index.html" class="el_group">ECSE429-P7</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.collections4.trie</a> &gt; <span class="el_source">UnmodifiableTrie.java</span></div><h1>UnmodifiableTrie.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.collections4.trie;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+
+import org.apache.commons.collections4.OrderedMapIterator;
+import org.apache.commons.collections4.Trie;
+import org.apache.commons.collections4.Unmodifiable;
+import org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIterator;
+
+/**
+ * An unmodifiable {@link Trie}.
+ *
+ * @since 4.0
+ */
+public class UnmodifiableTrie&lt;K, V&gt; implements Trie&lt;K, V&gt;, Serializable, Unmodifiable {
+
+    /** Serialization version */
+    private static final long serialVersionUID = -7156426030315945159L;
+
+    private final Trie&lt;K, V&gt; delegate;
+
+    /**
+     * Factory method to create a unmodifiable trie.
+     *
+     * @param &lt;K&gt;  the key type
+     * @param &lt;V&gt;  the value type
+     * @param trie  the trie to decorate, must not be null
+     * @return a new unmodifiable trie
+     * @throws NullPointerException if trie is null
+     */
+    public static &lt;K, V&gt; Trie&lt;K, V&gt; unmodifiableTrie(final Trie&lt;K, ? extends V&gt; trie) {
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (trie instanceof Unmodifiable) {</span>
+            @SuppressWarnings(&quot;unchecked&quot;) // safe to upcast
+<span class="nc" id="L56">            final Trie&lt;K, V&gt; tmpTrie = (Trie&lt;K, V&gt;) trie;</span>
+<span class="nc" id="L57">            return tmpTrie;</span>
+        }
+<span class="nc" id="L59">        return new UnmodifiableTrie&lt;&gt;(trie);</span>
+    }
+
+    //-----------------------------------------------------------------------
+    /**
+     * Constructor that wraps (not copies).
+     *
+     * @param trie  the trie to decorate, must not be null
+     * @throws NullPointerException if trie is null
+     */
+<span class="nc" id="L69">    public UnmodifiableTrie(final Trie&lt;K, ? extends V&gt; trie) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if (trie == null) {</span>
+<span class="nc" id="L71">            throw new NullPointerException(&quot;Trie must not be null&quot;);</span>
+        }
+        @SuppressWarnings(&quot;unchecked&quot;) // safe to upcast
+<span class="nc" id="L74">        final Trie&lt;K, V&gt; tmpTrie = (Trie&lt;K, V&gt;) trie;</span>
+<span class="nc" id="L75">        this.delegate = tmpTrie;</span>
+<span class="nc" id="L76">    }</span>
+
+    //-----------------------------------------------------------------------
+
+    @Override
+    public Set&lt;Entry&lt;K, V&gt;&gt; entrySet() {
+<span class="nc" id="L82">        return Collections.unmodifiableSet(delegate.entrySet());</span>
+    }
+
+    @Override
+    public Set&lt;K&gt; keySet() {
+<span class="nc" id="L87">        return Collections.unmodifiableSet(delegate.keySet());</span>
+    }
+
+    @Override
+    public Collection&lt;V&gt; values() {
+<span class="nc" id="L92">        return Collections.unmodifiableCollection(delegate.values());</span>
+    }
+
+    @Override
+    public void clear() {
+<span class="nc" id="L97">        throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public boolean containsKey(final Object key) {
+<span class="nc" id="L102">        return delegate.containsKey(key);</span>
+    }
+
+    @Override
+    public boolean containsValue(final Object value) {
+<span class="nc" id="L107">        return delegate.containsValue(value);</span>
+    }
+
+    @Override
+    public V get(final Object key) {
+<span class="nc" id="L112">        return delegate.get(key);</span>
+    }
+
+    @Override
+    public boolean isEmpty() {
+<span class="nc" id="L117">        return delegate.isEmpty();</span>
+    }
+
+    @Override
+    public V put(final K key, final V value) {
+<span class="nc" id="L122">        throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public void putAll(final Map&lt;? extends K, ? extends V&gt; m) {
+<span class="nc" id="L127">        throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public V remove(final Object key) {
+<span class="nc" id="L132">        throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public int size() {
+<span class="nc" id="L137">        return delegate.size();</span>
+    }
+
+    @Override
+    public K firstKey() {
+<span class="nc" id="L142">        return delegate.firstKey();</span>
+    }
+
+    @Override
+    public SortedMap&lt;K, V&gt; headMap(final K toKey) {
+<span class="nc" id="L147">        return Collections.unmodifiableSortedMap(delegate.headMap(toKey));</span>
+    }
+
+    @Override
+    public K lastKey() {
+<span class="nc" id="L152">        return delegate.lastKey();</span>
+    }
+
+    @Override
+    public SortedMap&lt;K, V&gt; subMap(final K fromKey, final K toKey) {
+<span class="nc" id="L157">        return Collections.unmodifiableSortedMap(delegate.subMap(fromKey, toKey));</span>
+    }
+
+    @Override
+    public SortedMap&lt;K, V&gt; tailMap(final K fromKey) {
+<span class="nc" id="L162">        return Collections.unmodifiableSortedMap(delegate.tailMap(fromKey));</span>
+    }
+
+    @Override
+    public SortedMap&lt;K, V&gt; prefixMap(final K key) {
+<span class="nc" id="L167">        return Collections.unmodifiableSortedMap(delegate.prefixMap(key));</span>
+    }
+
+    @Override
+    public Comparator&lt;? super K&gt; comparator() {
+<span class="nc" id="L172">        return delegate.comparator();</span>
+    }
+
+    //-----------------------------------------------------------------------
+    @Override
+    public OrderedMapIterator&lt;K, V&gt; mapIterator() {
+<span class="nc" id="L178">        final OrderedMapIterator&lt;K, V&gt; it = delegate.mapIterator();</span>
+<span class="nc" id="L179">        return UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it);</span>
+    }
+
+    @Override
+    public K nextKey(K key) {
+<span class="nc" id="L184">        return delegate.nextKey(key);</span>
+    }
+
+    @Override
+    public K previousKey(K key) {
+<span class="nc" id="L189">        return delegate.previousKey(key);</span>
+    }
+
+    //-----------------------------------------------------------------------
+    @Override
+    public int hashCode() {
+<span class="nc" id="L195">        return delegate.hashCode();</span>
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+<span class="nc" id="L200">        return delegate.equals(obj);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L205">        return delegate.toString();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>test (7-Dec-2017 3:34:43 PM)</div></body></html>
