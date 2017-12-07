@@ -48,7 +48,7 @@ public class nextGreaterTests {
 /*	@Test
 	public void testNextGreaterNull() {
 		assertNull(fourLevelTree.nextKey(null));
-*/	}
+*/
 	
 	/**
 	 * Coverage: 623-624
