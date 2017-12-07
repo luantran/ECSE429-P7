@@ -38,40 +38,59 @@ public class swapPositionTests {
 	
 	/*
 	 * Remove a node that is root
-	 * Coverage: Line 1207
+	 * Coverage: Line 1204
+	 * Coverage: Lines 1142, 1152-1153, 1167, 1171, 1177-1178, 1183, 1187
 	 */
 	@Test
 	public void removeRootNode() {
-		System.out.println(fourLevelTree.nextKey(13));
 		fourLevelTree.remove(13);
+		assertEquals(18, fourLevelTree.size());
 	}
 	
-	
+	/*
+	 * Remove a left node from a red node with 2 children
+	 * Coverage: 1157, 1163-1164
+	 */
 	@Test
 	public void removeTestLeftRedNode() {
-		System.out.println(fourLevelTree.nextKey(5));
 		fourLevelTree.remove(5);
+		assertEquals(18, fourLevelTree.size());
 	}
-//	
-//	@Test
-//	public void removeTestRightRedNode() {
-//		System.out.println(fourLevelTree.nextKey(10));
-//		fourLevelTree.remove(10);
-//
-//	}
-//	
-//	@Test
-//	public void removeTest3() {
-//		System.out.println(fourLevelTree.nextKey(8));
-//		fourLevelTree.remove(8);
-//	}
-//
-//
-//	@Test
-//	public void removeTest4() {
-//		fourLevelTree.remove(24);
-//		fourLevelTree.remove(23);
-//	}
+	
+	
+	/*
+	 * Remove a right node from a red node with 2 children
+	 * Coverage: 1148
+	 */
+	@Test
+	public void removeTestRightRedNode() {
+		fourLevelTree.remove(10);
+		assertEquals(18, fourLevelTree.size());
+	}
+	
+	
+	/*
+	 * Remove a grand parent node
+	 * Coverage: 1146
+	 */
+	@Test
+	public void removeTestGrandParentNode() {
+		fourLevelTree.remove(8);
+		assertEquals(18, fourLevelTree.size());
+	}
+
+
+	/*
+	 * Remove 2 nodes
+	 * Coverage: 1195
+	 */
+	@Test
+	public void removeTest2Nodes() {
+		fourLevelTree.remove(24);
+		fourLevelTree.remove(23);
+		assertEquals(17, fourLevelTree.size());
+
+	}
 
 
 }
