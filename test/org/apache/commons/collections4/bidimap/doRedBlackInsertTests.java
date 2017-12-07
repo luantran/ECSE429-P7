@@ -8,8 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import data.TreeBidiMapData;
+
 public class doRedBlackInsertTests {
 
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -27,66 +30,78 @@ public class doRedBlackInsertTests {
 	}
 	
 /*
- * Missing dead code test (lines 916-920)
- * Missing dead code test (lines 942-946)
- * Missing conditions line 925 and 951
- * Missing condition 902
+ * Could not test the following lines: suspected to be dead code, 
+ * code never reached:
+ * lines 916-920
+ * lines 942-946
  */
-	
+
+	/*
+	 * Test case 0
+	 * Insert a node to a root node
+	 * Coverage: 899-900, 958
+	 */
 	@Test
-	public void test1(){
+	public void testInsertANode() {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
-		testMap.put(5, 10);
-		testMap.put(12, 20);
-		assertEquals(2, testMap.size());
+		testMap.put(13, 13);
+		testMap.put(8, 8);
+		
 	}
 	
+	/*
+	 * Test case 1
+	 * Insert a left child to a right child of a root node
+	 * Coverage: 906, 922, 923, 926
+	 */
 	@Test
-	public void test2() {
+	public void testInsertLeftNodetoRedNode() {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
-		testMap.put(5, 10);
-		testMap.put(12, 20);
-		testMap.put(4, 15);
-		assertEquals(3, testMap.size());
-
+		testMap.put(13, 13);
+		testMap.put(8, 8);
+		testMap.put(5, 5);
 	}
 	
-	
+	/*
+	 * Test case 2
+	 * Insert a right child to a right child of a root node
+	 * Coverage: 932, 948, 949, 952
+	 */
 	@Test
-	public void test3() {
+	public void testInsertRightNodetoRedNode() {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
-		testMap.put(5, 10);
-		testMap.put(12, 20);
-		testMap.put(15, 14);
-		assertEquals(3, testMap.size());
-
+		testMap.put(13, 13);
+		testMap.put(32, 32);
+		testMap.put(37, 37);
 	}
 	
+	/*
+	 * Test case 3
+	 * Insert a left child to a balanced 2 degree tree
+	 * Coverage: 909-913
+	 */
 	@Test
-	public void test4() {
+	public void testInsertLeftNodetoBalancedTree() {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
-		testMap.put(5, 10);
-		testMap.put(3, 28);
-		testMap.put(4, 15);
-		assertEquals(3, testMap.size());
-
+		testMap.put(13, 13);
+		testMap.put(8, 8);
+		testMap.put(32, 32);
+		testMap.put(5, 5);
 	}
 	
+	/*
+	 * Test case 4
+	 * Insert right node to a balanced 2 degree tree
+	 * Coverage: 935-939
+	 */
 	@Test
-	public void test5() {
-		TreeBidiMap<Integer, Integer> bigBidiMap = new TreeBidiMap<Integer, Integer>();
-		bigBidiMap.put(5, 10);
-		bigBidiMap.put(7, 12);
-		bigBidiMap.put(3, 27);
-		bigBidiMap.put(12, 80);
-		bigBidiMap.put(1, 45);
-		bigBidiMap.put(24, 3);
-		bigBidiMap.put(15, 13);
-		bigBidiMap.put(6, 10);
-		bigBidiMap.put(9, 12);
-		bigBidiMap.put(23, 27);
-		assertEquals(7, bigBidiMap.size());
-
+	public void testInsertRightNodetoBalancedTree() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(13, 13);
+		//to prevent the tree from being unbalanced
+		testMap.put(8, 8);
+		testMap.put(32, 32);
+		testMap.put(37, 37);
 	}
 	
 

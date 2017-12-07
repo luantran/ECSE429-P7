@@ -33,43 +33,44 @@ public class swapPositionTests {
 
 	@Test
 	public void removeTest() {
-		fourLevelTree.remove(13);
-	}
-	
-	@Test
-	public void removeTest2() {
-		fourLevelTree.remove(8);
-
-	}
-	
-	@Test
-	public void removeTest3() {
-		fourLevelTree.remove(23);
-	}
-	
-	@Test
-	public void removeTest4() {
-		fourLevelTree.remove(10);
-	}
-	@Test
-	public void removeTest5() {
-		fourLevelTree.remove(32);
-	}
-	@Test
-	public void removeTest6() {
+		System.out.println(fourLevelTree.nextKey(5));
 		fourLevelTree.remove(5);
 	}
-	@Test
-	public void removeTest7() {
-		fourLevelTree.remove(23);
-	}
-	@Test
-	public void removeTest8() {
-		fourLevelTree.remove(37);
-	}
-	@Test
-	public void removeTest9() {
-		fourLevelTree.remove(1);
-	}
+	
+//	@Test
+//	public void removeTest2() {
+//		fourLevelTree.remove(8);
+//
+//	}
+//	
+//	@Test
+//	public void removeTest3() {
+//		fourLevelTree.remove(23);
+//	}
+//	
+//	@Test
+//	public void removeTest4() {
+//		fourLevelTree.remove(10);
+//	}
+//	@Test
+//	public void removeTest5() {
+//		fourLevelTree.remove(32);
+//	}
+//	@Test
+//	public void removeTest6() {
+//		fourLevelTree.remove(5);
+//	}
+//	@Test
+//	public void removeTest7() {
+//		fourLevelTree.remove(23);
+//	}
+//	@Test
+//	public void removeTest8() {
+//		fourLevelTree.remove(37);
+//	}
+//	@Test
+//	public void removeTest9() {
+//		fourLevelTree.remove(1);
+//	}
 
 }
