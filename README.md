@@ -15,11 +15,11 @@ You can find all the flow diagrams in the `flow_diagrams` directory
 We used branch coverage instead decision/condition coverage because decision coverage implies that all constituents of every condition statement be false at least once and true at least once. This is much more time consuming than path coverage because there are many more tests to perform. 
 An additional reason to not using decision overage is because most of the classes’ methods are private (especially TreeBidiMap). We have decided against testing private methods as it is common practice not to do so. We thus have to interface through the public methods in which those private methods are called. Doing so makes it much more difficult to affect the flow of a method. Some conditions may be nested within multiple other condition statements and thus it is impossible to actively change all of those condition constituents.
 
-#Example Flow diagram:
+# Example Flow diagram:
 
-![alt text](https://github.com/the-luantran/ECSE429-P7/flow_diagrams/doPut.png "doPut() flow diagram")
+![alt text](https://github.com/the-luantran/ECSE429-P7/blob/master/flow_diagrams/doPut.png "doPut() flow diagram")
 
-#Method characteristics table
+# Method characteristics table
 
 Conditions | Variables | Paths
 | ------------- |:-------------:| -----:|
@@ -27,10 +27,10 @@ Cond1: node | node | A-B-D-N
 Cond2: cmp | cmp | A-B-C-E-F-I-N
 Cond3: node.getLeft(Key) | node.getLeft(Key) | A-B-C-E-G-K-N
 Cond4: node.getRight(Key) | node.getRight(Key) | A-B-C-E-G-J
-- | - | A-B-C-E-H-M-N
-- | - | A-B-C-E-H-L
+/ | / | A-B-C-E-H-M-N
+/ | / | A-B-C-E-H-L
 
-#Minimal test cases table
+# Minimal test cases table
 
 
 Path | Key, Value | node | cmp | node.getLeft(Key) | node.getRight(Key) | Cond1@B | Cond2@E | Cond3@G | Cond4@H
