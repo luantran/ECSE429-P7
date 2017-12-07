@@ -50,28 +50,40 @@ public class nextSmallerTests {
 //		assertNull(fourLevelTree.nextKey(null));
 //	}
 	
+<<<<<<< HEAD
+
+=======
 	/**
 	 * Coverage:
 	 * 657
 	 */
+>>>>>>> d8c42d9cef94f81d817835f37ce70fdbe7eef6d4
 	@Test
 	public void testNextSmallerWithLeft() {
 		assertEquals(12, (int)fourLevelTree.previousKey(13));
 	}
+<<<<<<< HEAD
+
+=======
 	
 	/**
 	 * Coverage:
 	 * 665-666
 	 */
+>>>>>>> d8c42d9cef94f81d817835f37ce70fdbe7eef6d4
 	@Test
 	public void testNextSmallerNoLeft() {
 		assertEquals(5, (int)fourLevelTree.previousKey(6));
 	}
+<<<<<<< HEAD
+
+=======
 	
 	/**
 	 * Coverage:
 	 * 669-670
 	 */
+>>>>>>> d8c42d9cef94f81d817835f37ce70fdbe7eef6d4
 	@Test
 	public void testNextSmallerNoLeftWithLeftParent() {
 		assertNull(fourLevelTree.previousKey(1));
@@ -85,5 +97,13 @@ public class nextSmallerTests {
 	public void testNextSmallerNoLeftWithNullParent() {
 		assertNull(rootOnlyMap.previousKey(5));
 	}
+<<<<<<< HEAD
+
+	@Test
+	public void testNextSmallerEmpty() {
+		assertNull(emptyMap.nextKey(5));
+	}
+=======
 	
+>>>>>>> d8c42d9cef94f81d817835f37ce70fdbe7eef6d4
 }
