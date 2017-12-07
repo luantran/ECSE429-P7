@@ -41,7 +41,6 @@ public class doEqualsTests {
 	}
 
 	
-//	Comparing two different maps
 	/*
 	 * Coverage: 1348, 1350
 	 */

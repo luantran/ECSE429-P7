@@ -241,24 +241,5 @@ public class TreeBidiMapTest {
 	public void testGreatesNodeEmpty() {
 		emptyMap.lastKey();
 	}
-	
-//
-//	@Test
-//	public void testRemove() {
-//		rootOnlyMap.remove(5);
-//		assertEquals(0, rootOnlyMap.size());
-//	}
-//	
-//	@Test
-//	public void testRemoveLeftChild() {
-//		leftChildMap.remove(3);
-//		assertEquals(1, leftChildMap.size());
-//	}
-//	@Test
-//	public void testRemoveLeftChildFixup() {
-//		leftChildMap.remove(5);
-//		assertEquals(1, leftChildMap.size());
-//	}
-//	
 
 }

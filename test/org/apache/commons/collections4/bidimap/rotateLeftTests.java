@@ -48,13 +48,10 @@ public class rotateLeftTests {
 	 */
 	@Test
 	public void test1() {
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(40, 6);
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(25, 18);
-		System.out.println(twoLevelTree);
 		// Add to data type from above
 		twoLevelTree.put(50, 7);
 		twoLevelTree.put(60, 9);
@@ -66,13 +63,10 @@ public class rotateLeftTests {
 	 */
 	@Test
 	public void test2() {
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(40, 6);
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(25, 18);
-		System.out.println(twoLevelTree);
 		// Add to data type from above
 		twoLevelTree.put(50, 7);
 		twoLevelTree.put(45, 9);
