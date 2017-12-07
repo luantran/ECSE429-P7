@@ -33,7 +33,7 @@ Cond4: node.getRight(Key) | node.getRight(Key) | A-B-C-E-G-J
 # Minimal test cases table
 
 
-Path | Key, Value | node | cmp | getLeft(Key) | getRight(Key) | Cond1@B | Cond2@E | Cond3@G | Cond4@H
+Path | Key, Value | node | cmp | getLeft(Key) | getRight(Key) | Cond1 @B | Cond2 @E | Cond3 @G | Cond4 @H
 |-------------|-----|-------------| -----|-------------|-----|-------------|-----|-------------|-----|
 A/B/D/N | <5,15> | null | \ | \ | \ | T | \ | \ | \
 A/B/C/E/F/I/N | <5,10> | <5,10> | 0 | \ | \ | T | T->T | \ | \
