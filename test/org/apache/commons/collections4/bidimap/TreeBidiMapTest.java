@@ -130,7 +130,7 @@ public class TreeBidiMapTest {
 	public void testCopyColor() {
 		fourLevelTree.put(7, 7);
 		fourLevelTree.remove(1);
-		assertEquals(19, fourLevelTree.size());
+		assertEquals(15, fourLevelTree.size());
 	}
 	
 	///////////////////////////////////////////////////////////////

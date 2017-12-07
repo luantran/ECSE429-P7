@@ -17,6 +17,8 @@ import sun.awt.EmbeddedFrame;
 
 public class BlackBoxTests {
 	private TreeBidiMap<Integer, Integer> bigBidiMap;
+	private TreeBidiMap<Integer, Integer> rootOnlyMap;
+
 	private TreeBidiMap emptyMap;
 
 	@BeforeClass
@@ -31,6 +33,7 @@ public class BlackBoxTests {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		bigBidiMap = dataClass.bigBidiMap();
+		rootOnlyMap = dataClass.withRootOnlyBidiMap();
 		emptyMap = dataClass.emptyTreeBidiMap();
 	}
 
@@ -88,7 +91,7 @@ public class BlackBoxTests {
 	}
 	
 	@Test
-	public void testGetNonExistingKey() {
+	public void testGetNonExistingValue() {
 		assertNull(bigBidiMap.get(123));
 	}
 	
@@ -98,10 +101,36 @@ public class BlackBoxTests {
 	}
 	
 	@Test
-	public void testGetNullKey() {
-		assertFalse(bigBidiMap.isEmpty());
+	public void testGetValue() {
+		assertEquals(10, (int)bigBidiMap.get(5));
 	}
 	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * getKey() Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	@Test
+	public void testEmptyMapGetKey() {
+		assertNull(emptyMap.getKey(1));
+	}
+
+	@Test
+	public void testGetNonExistingKey() {
+		assertNull(bigBidiMap.getKey(123));
+	}
+
+	@Test(expected=ClassCastException.class)
+	public void testGetKeyInvalidArgument() {
+		bigBidiMap.getKey("Hello");
+	}
+
+	@Test
+	public void testGetKey() {
+		assertEquals(5, (int)bigBidiMap.getKey(10));
+	}
+
 	///////////////////////////////////////////////////////////////
 	/* 
 	 * putAll test
@@ -124,6 +153,227 @@ public class BlackBoxTests {
 		assertEquals(emptyMap.get(4), "four");
 		assertEquals(emptyMap.get(5), "five");
 	}
+	
+	@Test
+	public void testPutAllToExistingMap() {
+		Map<Integer, Integer> newMap = new HashMap<Integer, Integer>();
+		newMap.put(133, 133);
+		newMap.put(233, 233);
+		newMap.put(333, 333);
+		newMap.put(433, 433);
+		newMap.put(533, 533);
+		bigBidiMap.putAll(newMap);
+		assertEquals(12, bigBidiMap.size());
+		
+	}
+	
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	 * remove() tests
+	 *
+	 */
+	///////////////////////////////////////////////////////////////
+
+	@Test
+	public void testRemoveFromRootOnlyMap() {
+		rootOnlyMap.remove(5);
+		assertEquals(0, rootOnlyMap.size());
+	}
+	
+	@Test
+	public void testRemoveFromEmptyMap() {
+		assertNull(emptyMap.remove(1));
+	}
+	
+	@Test
+	public void testRemoveValidKey() {
+		bigBidiMap.remove(5);
+		assertEquals(6, bigBidiMap.size());
+	}
+	
+	@Test
+	public void testRemoveInvalidKey() {
+		assertNull(bigBidiMap.remove(134));
+	}
+	
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	 * removeValue() tests
+	 *
+	 */
+	///////////////////////////////////////////////////////////////
+
+	@Test
+	public void testRemoveValueFromRootOnlyMap() {
+		rootOnlyMap.removeValue(10);
+		assertEquals(0, rootOnlyMap.size());
+	}
+	
+	@Test
+	public void testRemoveValueFromEmptyMap() {
+		assertNull(emptyMap.removeValue(1));
+
+	}
+	
+	@Test
+	public void testRemoveValidValue() {
+		bigBidiMap.removeValue(10);
+		assertEquals(6, bigBidiMap.size());
+	}
+	
+	@Test
+	public void testRemoveInvalidValue() {
+		assertNull(bigBidiMap.removeValue(1));
+
+	}
+	
+
+	///////////////////////////////////////////////////////////////
+	/* 
+	 * clear test
+	 *
+	 */
+	///////////////////////////////////////////////////////////////
+
+	@Test
+	public void testClear() {
+		bigBidiMap.clear();
+		assertEquals(0, bigBidiMap.size());
+	}
+	
+	
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	 * firstKey, lastKey, nextKey and previousKey tests 
+	 * identical to leastNode and
+	 * greatestNode tests in TreeBidiMapTest.java
+	 */
+	///////////////////////////////////////////////////////////////
+
+	///////////////////////////////////////////////////////////////
+	/* 
+	* equals() tests are identical to doEquals
+	*  tests in doEqualsTests.java
+	*/
+	///////////////////////////////////////////////////////////////
+		
+	///////////////////////////////////////////////////////////////
+	/* 
+	* hashCode() tests are identical to doHashCode 
+	* tests in TreeBidiMapTest.java
+	*/
+	///////////////////////////////////////////////////////////////
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	* toString() tests are identical to doToString 
+	* tests in TreeBidiMapTest.java
+	*/
+	///////////////////////////////////////////////////////////////
+	
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	* keySet() tests
+	*/
+	///////////////////////////////////////////////////////////////
+	
+	
+	@Test
+	public void testEmptyMapKeySet() {
+		assertEquals(0, emptyMap.keySet().size());
+	}
+	
+	@Test
+	public void testKeySet() {
+		assertEquals(7, bigBidiMap.keySet().size());
+		assertTrue(bigBidiMap.keySet().contains(1));
+		assertTrue(bigBidiMap.keySet().contains(3));
+		assertTrue(bigBidiMap.keySet().contains(5));
+		assertTrue(bigBidiMap.keySet().contains(7));
+		assertTrue(bigBidiMap.keySet().contains(12));
+		assertTrue(bigBidiMap.keySet().contains(15));
+		assertTrue(bigBidiMap.keySet().contains(24));		
+	}
+	
+	@Test 
+	public void testInverseKeySet() {
+		assertEquals(7, bigBidiMap.inverseBidiMap().keySet().size());
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(10));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(12));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(27));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(80));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(45));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(3));
+		assertTrue(bigBidiMap.inverseBidiMap().keySet().contains(13));	
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	* values() tests
+	*/
+	///////////////////////////////////////////////////////////////
+	
+	
+	@Test
+	public void testEmptyMapValues() {
+		assertEquals(0, emptyMap.values().size());
+	}
+	
+	@Test
+	public void testValues() {
+		assertEquals(7, bigBidiMap.values().size());
+		assertTrue(bigBidiMap.values().contains(10));
+		assertTrue(bigBidiMap.values().contains(12));
+		assertTrue(bigBidiMap.values().contains(27));
+		assertTrue(bigBidiMap.values().contains(80));
+		assertTrue(bigBidiMap.values().contains(45));
+		assertTrue(bigBidiMap.values().contains(3));
+		assertTrue(bigBidiMap.values().contains(13));		
+	}
+	
+	@Test 
+	public void testInverseValues() {
+		assertEquals(7, bigBidiMap.inverseBidiMap().keySet().size());
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(1));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(3));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(5));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(7));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(12));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(15));
+		assertTrue(bigBidiMap.inverseBidiMap().values().contains(24));	
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	* entrySet() tests
+	*/
+	///////////////////////////////////////////////////////////////
+	
+	@Test
+	public void testEmptyMapEntry() {
+		assertEquals(0, emptyMap.entrySet().size());
+	}
+	
+	@Test
+	public void testEntrySet() {
+		assertEquals(7, bigBidiMap.entrySet().size());
+	}
+	
+	@Test 
+	public void testInverseEntrySet() {
+		assertEquals(7, bigBidiMap.entrySet().size());
+		assertEquals("[3=24, 10=5, 12=7, 13=15, 27=3, 45=1, 80=12]",bigBidiMap.inverseBidiMap().entrySet().toString());
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/* 
+	* mapIterator() tests
+	*/
+	///////////////////////////////////////////////////////////////
 	
 	///////////////////////////////////////////////////////////////
 

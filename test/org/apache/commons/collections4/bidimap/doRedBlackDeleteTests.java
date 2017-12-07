@@ -118,7 +118,7 @@ public class doRedBlackDeleteTests {
 		fourLevelTree.put(7, 7);
 		fourLevelTree.remove(1);
 		assertEquals(false, fourLevelTree.containsKey(1));
-		assertEquals(19, fourLevelTree.size());
+		assertEquals(15, fourLevelTree.size());
 	}
 
 }

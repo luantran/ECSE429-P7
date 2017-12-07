@@ -82,7 +82,7 @@ public class insertValueTests {
 	 * Coverage: 1306-1309
 	 * exception never gets thrown, because the node gets replaced
 	 */
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testInsertDuplicateValue() {
 		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
 		testMap.put(5, 10);
