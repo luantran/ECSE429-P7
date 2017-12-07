@@ -51,3 +51,5 @@ TreeBidiMap class: 81.8%
 BagUtils class: 94%
 ChainedClosure: 0% (To do)
 
+[View generated Eclemma Report]()
+
