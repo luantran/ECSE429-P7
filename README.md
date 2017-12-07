@@ -33,14 +33,14 @@ Cond4: node.getRight(Key) | node.getRight(Key) | A-B-C-E-G-J
 # Minimal test cases table
 
 
-Path | Key, Value | node | cmp | node.getLeft(Key) | node.getRight(Key) | Cond1@B | Cond2@E | Cond3@G | Cond4@H
+Path | Key, Value | node | cmp | getLeft(Key) | getRight(Key) | Cond1@B | Cond2@E | Cond3@G | Cond4@H
 |-------------|-----|-------------| -----|-------------|-----|-------------|-----|-------------|-----|
-A-B-D-N | <5,15> | null | \ | \ | \ | T | \ | \ | \
-A-B-C-E-F-I-N | <5,10> | <5,10> | 0 | \ | \ | T | T->T | \ | \
-A-B-C-E-G-K-N | <1,27> | <5,10> | -1 | null | \ | T | T->T | F->F | \
-A-B-C-E-G-J | <1,15> | <5,10> | -1 | <3,27> | \ | T | T->T | T->T | \
-A-B-C-E-H-M-N | <8,15> | <5,10> | 1 | \ | null | T | T->T | \ | F->F
-A-B-C-E-H-L | <15,29> | <5,10> | 1 | \ | <7,12> | T | T->T | \ | T->T
+A/B/D/N | <5,15> | null | \ | \ | \ | T | \ | \ | \
+A/B/C/E/F/I/N | <5,10> | <5,10> | 0 | \ | \ | T | T->T | \ | \
+A/B/C/E/G/K/N | <1,27> | <5,10> | -1 | null | \ | T | T->T | F->F | \
+A/B/C/E/G/J | <1,15> | <5,10> | -1 | <3,27> | \ | T | T->T | T->T | \
+A/B/C/E/H/M/N | <8,15> | <5,10> | 1 | \ | null | T | T->T | \ | F->F
+A/B/C/E/H/L | <15,29> | <5,10> | 1 | \ | <7,12> | T | T->T | \ | T->T
 
 
 
