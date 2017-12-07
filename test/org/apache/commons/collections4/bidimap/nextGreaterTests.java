@@ -42,33 +42,51 @@ public class nextGreaterTests {
 	public void tearDown() throws Exception {
 	}
 	
-	/*
-	 * Cannot test null because exception gets thrown
-	 */
-//	@Test
-//	public void testNextGreaterNull() {
-//		assertNull(fourLevelTree.nextKey(null));
-//	}
 	
+	//Cannot test null because exception gets thrown
+	 
+/*	@Test
+	public void testNextGreaterNull() {
+		assertNull(fourLevelTree.nextKey(null));
+*/	}
+	
+	/**
+	 * Coverage: 623-624
+	 */
 	@Test
 	public void testNextGreaterWithRight() {
 		assertEquals(15, (int)fourLevelTree.nextKey(13));
 	}
-//	
+	
+	/**
+	 * Coverage:631-632
+	 */
 	@Test
 	public void testNextGreaterNoRight() {
 		assertEquals(5, (int)fourLevelTree.nextKey(1));
 	}
+	
+	/**
+	 * Coverage:631-640
+	 */
 	
 	@Test
 	public void testNextGreaterNoRightWithRightParent() {
 		assertEquals(8, (int)fourLevelTree.nextKey(6));
 	}
 	
+	/**
+	 * Coverage:631-632
+	 */
+	
 	@Test
 	public void testNextGreaterNoRightWithNullParent() {
 		assertNull(rootOnlyMap.nextKey(5));
 	}
+	
+	/**
+	 * Coverage:619
+	 */
 	
 	@Test
 	public void testNextGreaterEmpty() {
