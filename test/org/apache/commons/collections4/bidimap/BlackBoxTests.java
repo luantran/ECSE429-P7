@@ -5,7 +5,9 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.collections4.MapIterator;
 import org.apache.commons.collections4.OrderedBidiMap;
+import org.apache.commons.collections4.OrderedMapIterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -375,6 +377,28 @@ public class BlackBoxTests {
 	*/
 	///////////////////////////////////////////////////////////////
 	
+	@Test
+	public void testMapIterator() {
+		MapIterator<Integer, Integer> oMap = bigBidiMap.mapIterator();
+		int count = 0;
+		while(oMap.hasNext()) {
+		    Integer entry = oMap.next();	
+		    count++;
+		}
+		assertEquals(7, count);
+	}
+	
+	@Test
+	public void testEmptyMapIterator() {
+		MapIterator<Integer, Integer> oMap = emptyMap.mapIterator();
+		int count = 0;
+		while(oMap.hasNext()) {
+		    Integer entry = oMap.next();	
+		    count++;
+		}
+		assertEquals(0, count);
+	}
+	
 	///////////////////////////////////////////////////////////////
 
 	/*
@@ -536,8 +560,4 @@ public class BlackBoxTests {
 		assertEquals(inverse.get(24), bigBidiMap.getKey(24));
 		assertEquals(inverse.get(15), bigBidiMap.getKey(15));
 	}
-	
-	/*
-	 * 
-	 */
 }

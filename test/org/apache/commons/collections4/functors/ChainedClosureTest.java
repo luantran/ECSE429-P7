@@ -26,29 +26,29 @@ public class ChainedClosureTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testChainedClosureClosureOfQsuperEArray() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testChainedClosureCollectionOfQextendsClosureOfQsuperE() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testChainedClosure() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testExecute() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClosures() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testChainedClosureClosureOfQsuperEArray() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testChainedClosureCollectionOfQextendsClosureOfQsuperE() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testChainedClosure() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testExecute() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetClosures() {
+//		fail("Not yet implemented");
+//	}
 
 }
