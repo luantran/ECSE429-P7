@@ -51,5 +51,5 @@ Using Eclemma:
 * BagUtils class: 94%
 * ChainedClosure: 0% (To do)
 
-[View generated Eclemma Report](https://github.com/the-luantran/ECSE429-P7/blob/master/eclemma_report.html)
+[Get generated Eclemma Report](https://github.com/the-luantran/ECSE429-P7/blob/master/eclemma_report.html)
 
