@@ -51,5 +51,5 @@ TreeBidiMap class: 81.8%
 BagUtils class: 94%
 ChainedClosure: 0% (To do)
 
-[View generated Eclemma Report]()
+[View generated Eclemma Report](https://github.com/the-luantran/ECSE429-P7/blob/master/eclemma_report.html)
 
