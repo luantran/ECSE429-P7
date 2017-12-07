@@ -61,7 +61,7 @@ public TreeBidiMap bigBidiMap2() {
 	bigBidiMap2.put(77, 80);
 	bigBidiMap2.put(4, 45);
 	bigBidiMap2.put(2, 3);
-	bigBidiMap2.put(5, 13);
+	bigBidiMap2.put(8, 13);
 
 	return bigBidiMap2;
 }
@@ -69,13 +69,13 @@ public TreeBidiMap bigBidiMap2() {
 public TreeBidiMap bigBidiMap3() { 
 	
 	TreeBidiMap bigBidiMap3 = new TreeBidiMap();
-	bigBidiMap3.put("seven", "one");
-	bigBidiMap3.put("six", "two");
-	bigBidiMap3.put("five", "three");
-	bigBidiMap3.put("four", "four");
-	bigBidiMap3.put("three", "five");
-	bigBidiMap3.put("two", "six");
-	bigBidiMap3.put("one", "seven");
+	bigBidiMap3.put("seven", 7);
+	bigBidiMap3.put("six", 6);
+	bigBidiMap3.put("five", 5);
+	bigBidiMap3.put("four", 4);
+	bigBidiMap3.put("three", 3);
+	bigBidiMap3.put("two", 2);
+	bigBidiMap3.put("one", 1);
 
 	return bigBidiMap3;
 }

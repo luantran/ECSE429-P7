@@ -33,7 +33,6 @@ public class swapPositionTests {
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println();
 	}
 	
 	/*
@@ -45,6 +44,8 @@ public class swapPositionTests {
 	public void removeRootNode() {
 		fourLevelTree.remove(13);
 		assertEquals(18, fourLevelTree.size());
+		assertEquals(false, fourLevelTree.containsKey(13));
+
 	}
 	
 	/*
@@ -55,6 +56,8 @@ public class swapPositionTests {
 	public void removeTestLeftRedNode() {
 		fourLevelTree.remove(5);
 		assertEquals(18, fourLevelTree.size());
+		assertEquals(false, fourLevelTree.containsKey(5));
+
 	}
 	
 	
@@ -66,6 +69,8 @@ public class swapPositionTests {
 	public void removeTestRightRedNode() {
 		fourLevelTree.remove(10);
 		assertEquals(18, fourLevelTree.size());
+		assertEquals(false, fourLevelTree.containsKey(10));
+
 	}
 	
 	
@@ -77,6 +82,8 @@ public class swapPositionTests {
 	public void removeTestGrandParentNode() {
 		fourLevelTree.remove(8);
 		assertEquals(18, fourLevelTree.size());
+		assertEquals(false, fourLevelTree.containsKey(8));
+
 	}
 
 
@@ -89,7 +96,8 @@ public class swapPositionTests {
 		fourLevelTree.remove(24);
 		fourLevelTree.remove(23);
 		assertEquals(17, fourLevelTree.size());
-
+		assertEquals(false, fourLevelTree.containsKey(24));
+		assertEquals(false, fourLevelTree.containsKey(23));
 	}
 
 

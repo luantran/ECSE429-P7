@@ -21,6 +21,7 @@ public class TreeBidiMapTest {
 	private TreeBidiMap bigBidiMap;
 	private TreeBidiMap rightChildMap;
 	private TreeBidiMap emptyMap;
+	private TreeBidiMap<Integer, Integer> fourLevelTree;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -39,23 +40,16 @@ public class TreeBidiMapTest {
 		leftChildMap = dataClass.valueOnLeftChild();
 		bigBidiMap = dataClass.bigBidiMap();
 		rightChildMap = dataClass.valueOnRightChild();
-
+		fourLevelTree = dataClass.fourLevelBidiMap();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
-
-//	@Test
-//	public void testHashCode() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testTreeBidiMap() {
-//		fail("Not yet implemented");
-//	}
-
+	
+	/*
+	 * Constructor test
+	 */
 	@Test
 	public void testTreeBidiMapMapOfQextendsKQextendsV() {
 		Map<Integer, String> newMap = new HashMap<Integer, String>();
@@ -72,18 +66,152 @@ public class TreeBidiMapTest {
 		assertEquals(constructorBDMap.get(5), "five");
 
 	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * doRemoveKey Tests
+	 */
+	///////////////////////////////////////////////////////////////
 
+	
+	/*
+	 * Coverage: 560
+	 */
 	@Test
-	public void testSize() {
-		assertEquals(1, this.rootOnlyMap.size());
+	public void testDoRemoveNonExistingKeyl() {
+		bigBidiMap.remove(2);
+		assertEquals(7, bigBidiMap.size());
 	}
 	
+	/*
+	 * Coverage: 562-563
+	 */
+	@Test
+	public void testDoRemoveKey() {
+		bigBidiMap.remove(5);
+		assertEquals(6, bigBidiMap.size());
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * doRemoveValue Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	
+	/*
+	 * Coverage: 569 
+	 */
+	@Test
+	public void testDoRemoveNonExistingValue() {
+		bigBidiMap.removeValue(2);
+		assertEquals(7, bigBidiMap.size());
+	}
+	
+	/*
+	 * Coverage: 571-572
+	 */
+	@Test
+	public void testDoRemoveValue() {
+		bigBidiMap.removeValue(80);
+		assertEquals(6, bigBidiMap.size());
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * copyColor Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	/*
+	 * Coverage: 741
+	 */
+	@Test
+	public void testCopyColor() {
+		fourLevelTree.put(7, 7);
+		fourLevelTree.remove(1);
+		assertEquals(19, fourLevelTree.size());
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * doHashCode Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	/*
+	 * Coverage: complete path coverage
+	 */
+	@Test
+	public void testDoHashCode() {
+		bigBidiMap.hashCode();
+	}
+	
+	/*
+	 * Coverage: complete decision coverage
+	 */
+	@Test
+	public void testEmptyHashCode() {
+		emptyMap.hashCode();
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * getMapIterator Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	/*
+	 * Coverage: 1423
+	 */
+	@Test
+	public void testGetMapIterator() {
+		assertEquals("{5=10}",rootOnlyMap.toString());		
+	}
+	
+	/*
+	 * Coverag: 1425
+	 */
+	@Test
+	public void testGetInverseMapIterator() {
+		assertEquals("{10=5}",rootOnlyMap.inverseBidiMap().toString());
+	}
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * doToString Tests
+	 */
+	///////////////////////////////////////////////////////////////
+
+	/*
+	 * Coverage: 1397
+	 */
+	@Test
+	public void testEmptyMapToString() {
+		assertEquals("{}",emptyMap.toString());
+	}
+	
+	/*
+	 * Coverage: all paths except line 1397
+	 */
+	@Test
+	public void testMapToString() {
+		assertEquals("{3=27, 5=10}",leftChildMap.toString());
+	}
+	
+	
+	///////////////////////////////////////////////////////////////
+	/*
+	 * leastNode and greatestNode tests
+	 */
+	///////////////////////////////////////////////////////////////
+
 	/*
 	 * Finding the smallest key in tree; there should be one
 	 * Covers: leastNode
 	 */
 	@Test
-	public void getLeastNodeExist() {
+	public void testLeastNodeExist() {
 		assertEquals(1,bigBidiMap.firstKey());
 	}
 	
@@ -92,7 +220,7 @@ public class TreeBidiMapTest {
 	 * Will not go into leastNode because there is an exception when the tree is empty
 	 */
 	@Test(expected=NoSuchElementException.class)
-	public void getLeastNodeEmpty() {
+	public void testLeastNodeEmpty() {
 		emptyMap.firstKey();
 	}
 	
@@ -101,7 +229,7 @@ public class TreeBidiMapTest {
 	 * Covers: greatestNode
 	 */
 	@Test
-	public void getGreatestNodeExist() {
+	public void testGreatestNodeExist() {
 		assertEquals(24, bigBidiMap.lastKey());
 	}
 	
@@ -110,132 +238,27 @@ public class TreeBidiMapTest {
 	 * Will not go into greatestNode because there is an exception when the tree is empty
 	 */
 	@Test(expected=NoSuchElementException.class)
-	public void getGreatesNodeEmpty() {
+	public void testGreatesNodeEmpty() {
 		emptyMap.lastKey();
 	}
 	
-
-//	@Test
-//	public void testIsEmpty() {
-//		fail("Not yet implemented");
-//	}
 //
 //	@Test
-//	public void testContainsKey() {
-//		fail("Not yet implemented");
+//	public void testRemove() {
+//		rootOnlyMap.remove(5);
+//		assertEquals(0, rootOnlyMap.size());
 //	}
-//
+//	
 //	@Test
-//	public void testContainsValue() {
-//		fail("Not yet implemented");
+//	public void testRemoveLeftChild() {
+//		leftChildMap.remove(3);
+//		assertEquals(1, leftChildMap.size());
 //	}
-//
 //	@Test
-//	public void testGet() {
-//		fail("Not yet implemented");
+//	public void testRemoveLeftChildFixup() {
+//		leftChildMap.remove(5);
+//		assertEquals(1, leftChildMap.size());
 //	}
-	
-
-//	@Test
-//	public void testPutAll() {
-//		
-//	}
-
-	@Test
-	public void testRemove() {
-		rootOnlyMap.remove(5);
-		assertEquals(0, rootOnlyMap.size());
-	}
-	
-	@Test
-	public void testRemoveLeftChild() {
-		leftChildMap.remove(3);
-		assertEquals(1, leftChildMap.size());
-	}
-	@Test
-	public void testRemoveLeftChildFixup() {
-		leftChildMap.remove(5);
-		assertEquals(1, leftChildMap.size());
-	}
-	
-	
-	
-//	@Test
-//	public void testClear() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetKey() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testRemoveValue() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testFirstKey() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testLastKey() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testNextKey() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testPreviousKey() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testKeySet() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testValues() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testEntrySet() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testMapIterator() {
-//		fail("Not yet implemented");
-//	}
-
-	@Test
-	public void testInverseBidiMap() {
-
-		OrderedBidiMap inverse = this.bigBidiMap.inverseBidiMap();
-		assertEquals(inverse.get(5), bigBidiMap.getKey(5));
-		assertEquals(inverse.get(7), bigBidiMap.getKey(7));
-		assertEquals(inverse.get(3), bigBidiMap.getKey(3));
-		assertEquals(inverse.get(12), bigBidiMap.getKey(12));
-		assertEquals(inverse.get(1), bigBidiMap.getKey(1));
-		assertEquals(inverse.get(24), bigBidiMap.getKey(24));
-		assertEquals(inverse.get(15), bigBidiMap.getKey(15));
-	}
-
-//	@Test
-//	public void testEqualsObject() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testToString() {
-//		fail("Not yet implemented");
-//	}
+//	
 
 }

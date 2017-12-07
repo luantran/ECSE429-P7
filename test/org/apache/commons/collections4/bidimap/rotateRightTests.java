@@ -53,13 +53,10 @@ public class rotateRightTests {
 	 */
 	@Test
 	public void testRightRotateOnce() {
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(15, 6);
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(5, 18);
-		System.out.println(twoLevelTree);
 		// Add to data type from above
 		twoLevelTree.put(18, 6);
 	}
@@ -70,15 +67,26 @@ public class rotateRightTests {
 	 */
 	@Test
 	public void testRightRotateTwice() {
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(15, 6);
-		System.out.println(twoLevelTree);
 		assertEquals(10, twoLevelTree.firstKey());
 		twoLevelTree.put(5, 18);
-		System.out.println(twoLevelTree);
 		// Add to data type from above
 		twoLevelTree.put(1, 6);
+	}
+	
+	/*
+	 * Coverage: 882
+	 */
+	@Test
+	public void testRoteteRightInsideBranch() {
+		TreeBidiMap<Integer, Integer> testMap = new TreeBidiMap<Integer, Integer>();
+		testMap.put(13, 13);
+		testMap.put(8, 8);
+		testMap.put(19, 19);
+		testMap.put(15, 15);
+		testMap.put(14, 14);
+		assertEquals(5, testMap.size());
 	}
 	
 	

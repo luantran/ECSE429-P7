@@ -13,9 +13,9 @@ import data.TreeBidiMapData;
 public class doEqualsTests {
 	
 	private TreeBidiMap bigBidiMap;
+	private TreeBidiMap bigBidiMap_other;
 	private TreeBidiMap bigBidiMap2;
 	private TreeBidiMap bigBidiMap3;
-	private TreeBidiMap bigBidiMap4;
 	private TreeBidiMap leftChildMap;
 	
 	@BeforeClass
@@ -30,9 +30,9 @@ public class doEqualsTests {
 	public void setUp() throws Exception {
 		TreeBidiMapData dataClass = new TreeBidiMapData();
 		bigBidiMap = dataClass.bigBidiMap();
-		bigBidiMap2 = dataClass.bigBidiMap();
-		bigBidiMap3 = dataClass.bigBidiMap2();
-		bigBidiMap4 = dataClass.bigBidiMap3();
+		bigBidiMap_other = dataClass.bigBidiMap();
+		bigBidiMap2 = dataClass.bigBidiMap2();
+		bigBidiMap3 = dataClass.bigBidiMap3();
 		leftChildMap = dataClass.valueOnLeftChild();
 	}
 
@@ -41,40 +41,58 @@ public class doEqualsTests {
 	}
 
 	
-	//Comparing two different maps
+//	Comparing two different maps
+	/*
+	 * Coverage: 1348, 1350
+	 */
 	@Test
 	public void doEqualsTestDifferentMaps() {
 		assertFalse(bigBidiMap.equals(leftChildMap));
 
 	}
 	
+	/*
+	 * Coverage: 1345-1346
+	 */
 	@Test
 	public void doEqualsTestDifferentTypes() {
 		assertFalse(bigBidiMap.equals(1));
 
 	}
 	
+	/*
+	 * Coverage: 1342-1343
+	 */
 	@Test
 	public void doEqualsTestSameMap() {
 		assertTrue(bigBidiMap.equals(bigBidiMap));
 
 	}
 	
+	/*
+	 * Coverage: 1355-1357, 1368
+	 */
 	@Test
 	public void doEqualsTestSameMapDifferentInstances() {
-		assertTrue(bigBidiMap.equals(bigBidiMap2));
+		assertTrue(bigBidiMap.equals(bigBidiMap_other));
 
 	}
 	
+	/*
+	 * Coverage: 1358-1359
+	 */
 	@Test
-	public void doEqualsTestSameMapDifferentKeyInstances() {
+	public void doEqualsTestSameMapDifferentKeys() {
+		assertFalse(bigBidiMap.equals(bigBidiMap2));
+
+	}
+	
+	/*
+	 * Coverage: 1364-1365
+	 */
+	@Test
+	public void doEqualsTestCasting() {
 		assertFalse(bigBidiMap.equals(bigBidiMap3));
-
-	}
-	
-	@Test
-	public void doEqualsTestSameMapDifferentKeyCasting() {
-		assertFalse(bigBidiMap.equals(bigBidiMap4));
 		
 	}
 

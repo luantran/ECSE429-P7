@@ -18,6 +18,8 @@ public class doRedBlackDeleteTests {
 	private TreeBidiMap rightChildMap;
 	private TreeBidiMap emptyMap;
 	private TreeBidiMap twoLevelTree;
+	private TreeBidiMap fourLevelTree;
+
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -37,6 +39,7 @@ public class doRedBlackDeleteTests {
 		bigBidiMap = dataClass.bigBidiMap();
 		rightChildMap = dataClass.valueOnRightChild();
 		twoLevelTree = dataClass.twoLevelBidiMap();
+		fourLevelTree = dataClass.fourLevelBidiMap();
 		
 	}
 
@@ -104,6 +107,18 @@ public class doRedBlackDeleteTests {
 	public void testRemoveOnRight() {
 		 bigBidiMap.remove(12);
 		 assertEquals(false, bigBidiMap.containsKey(12)); // Make sure the key is no longer there
+	}
+	
+	/*
+	 * Deleting child which is both black and on the right side
+	 * Coverage: 1007
+	 */
+	@Test
+	public void testRemoveChildLessNode() {
+		fourLevelTree.put(7, 7);
+		fourLevelTree.remove(1);
+		assertEquals(false, fourLevelTree.containsKey(1));
+		assertEquals(19, fourLevelTree.size());
 	}
 
 }
