@@ -89,7 +89,7 @@ public class ChainedClosure<E> implements Closure<E>, Serializable {
     private ChainedClosure(final boolean clone, final Closure<? super E>... closures) {
         super();
         iClosures = clone ? FunctorUtils.copy(closures) : closures;
-    }
+    } 
 
     /**
      * Constructor that performs no validation.

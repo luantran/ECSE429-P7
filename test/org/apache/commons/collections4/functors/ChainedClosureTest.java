@@ -4,8 +4,12 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.apache.commons.collections4.Bag;
+import org.apache.commons.collections4.BagUtils;
 import org.apache.commons.collections4.Closure;
+import org.apache.commons.collections4.ClosureUtils;
 
 import data.ChainedClosureData;
 
@@ -51,7 +55,58 @@ public class ChainedClosureTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	/*
+	 * Coverage: 43
+	 */
+	@Test
+	public void testChainedClosure1() {
+		ChainedClosure testChained = null;
+		try {
+			ChainedClosure.chainedClosure(testChained);
+			fail();
+		} catch (NullPointerException e) {
+		}
+	}
 
+	/*
+	 * Coverage: 47-51
+	 */
+	@Test
+	public void testChainedClosure2() {
+		Closure testArray[] = {cIncrement, cIncrementBy2};
+		ChainedClosure testChained = new ChainedClosure<Integer>(testArray);
+		Closure copyClosure = ChainedClosure.chainedClosure(testChained);
+		//assertEquals("Not equal", testChained, copyClosure);
+	}
+
+	/*
+	 * Coverage: 68
+	 */
+	@Test
+	public void testChainedClosure5() {
+		List<Closure<List<Integer>>> testChained = new ArrayList<Closure<List<Integer>>>();
+		testChained.add(null);
+		try {
+			ChainedClosure.chainedClosure(testChained);
+			fail();
+		} catch (NullPointerException e) {
+		}
+	}
+	
+	/*
+	 * Coverage: 71
+	 */
+	@Test
+	public void testChainedClosure6() {
+		List<Closure<List<Integer>>> testChained = null;
+		try {
+			ChainedClosure.chainedClosure(testChained);
+			fail();
+		} catch (NullPointerException e) {
+		}
+	}
+	
 	/*
 	 * Coverage: 101
 	 */
